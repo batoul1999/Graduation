@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:graduation/core/data/repositories/hive_repository.dart';
-import 'package:graduation/core/util.dart';
-import 'package:graduation/my_app/my_app.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:graduation/app/core/data/repositories/shared_preference_repository.dart';
+import 'package:graduation/mian_app/mian_app.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-Future<void> main() async {
-  await ScreenUtil.ensureScreenSize();
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Get.put(HiveRepository());
-  await localStorage.init();
-  runApp(const MyApp());
+  await ScreenUtil.ensureScreenSize();
+  // Get.put(HiveRepository());
+  await Get.putAsync(
+    () async {
+      var sharedPref = await SharedPreferences.getInstance();
+      return sharedPref;
+    },
+  );
+
+  Get.put(SharedPrefreanceRepository());
+  // await storage.init();
+  runApp(const MainApp());
 }
