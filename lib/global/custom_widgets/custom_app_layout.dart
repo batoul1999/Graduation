@@ -7,7 +7,8 @@ import 'package:graduation/global/shared/app_colors.dart';
 class CustomAppLayout extends StatelessWidget {
   Widget? backWardWidget;
   Widget? forWardWidget;
-  CustomAppLayout({super.key, this.backWardWidget, this.forWardWidget});
+  final IconData? mainIcon;
+  CustomAppLayout({super.key, this.backWardWidget, this.forWardWidget,this.mainIcon});
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +24,13 @@ class CustomAppLayout extends StatelessWidget {
             child: SizedBox(
               width: 0.02.sw,
               height: 0.005.sh,
-              child: Icon(
-                Icons.edit_document,
+              child: 
+              Icon(
+                mainIcon?? Icons.edit_document,
                 color: AppColors.whiteColor,
                 size: 0.3.sw,
-              ),
+              )
+              
             ),
           ),
         ),

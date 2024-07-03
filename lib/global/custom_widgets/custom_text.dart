@@ -51,6 +51,7 @@ class CustomText extends StatelessWidget {
             softWrap: true,
             maxLines: maxLines ?? 1,
             style: getTextStyle(),
+            
           )
         : RichText(
             text: TextSpan(

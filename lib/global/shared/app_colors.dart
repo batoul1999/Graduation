@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static Color secondBlue = const Color(0xFFF0F9F7);
+  static Color secondBlue =  const Color(0xFFF0F9F7);
   static Color mainBlue = const Color(0xFF3382B9);
   static Color gradientBlue = const Color.fromARGB(255, 226, 239, 246);
   static Color mainDark = const Color(0xFF1B262C);

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:graduation/app/core/utils/general_utils.dart';
+import 'package:graduation/app/modules/forget_password/views/forget_password.dart';
 import 'package:graduation/app/modules/sign_up/view/sign_up_view.dart';
 import 'package:graduation/global/custom_widgets/custom_app_layout.dart';
 import 'package:graduation/global/custom_widgets/custom_button.dart';
@@ -65,8 +66,7 @@ class LoginView extends GetView<LoginController> {
                 textSize: 12.sp,
                 decoration: TextDecoration.none,
                 onPressed: () {
-                  controller.errorMessage.value =
-                      'Signup not included in our test';
+                 Get.to( ForgetPassword());
                 }),
           // Obx(
           //   () => Text(
