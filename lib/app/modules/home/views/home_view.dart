@@ -14,12 +14,14 @@ import '../controllers/home_controller.dart';
 class HomeView extends GetView<HomeController> {
   HomeView({super.key});
   @override
+  HomeController controller = Get.put(HomeController());
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       bottomNavigationBar: Container(
-        margin: EdgeInsets.all(0.04.sw),
-        height: 1.sw * .155,
+        margin: EdgeInsetsDirectional.only(start: 0.04.sw,end:  0.04.sw,bottom:  0.04.sw),
+        height:0.07.sh,
         decoration: BoxDecoration(
           color: AppColors.whiteColor,
           boxShadow: [

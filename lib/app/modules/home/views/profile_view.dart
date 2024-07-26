@@ -12,35 +12,35 @@ class ProfileView extends GetView<ProfileController> {
   ProfileController controller = Get.put(ProfileController());
   @override
   Widget build(BuildContext context) {
-    final userInfo = prefStorage.getLoginModel();
+    // final userInfo = prefStorage.getLoginModel();
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 0.07.sh, horizontal: 0.03.sh),
-       child: const Column(
-        //  children: [
-        //    CustomText(
-        //        textType: TextStyleType.title,
-        //       text: userInfo!.username ?? 'no name',
-        //        textColor: AppColors.secondDark),
-        //    0.03.sh.ph,
-        //    CustomImageAvatar(image: userInfo.image, fromNetwork: true),
-        //    0.1.sh.ph,
-        //    rowInfo('Email:', userInfo.email),
-        //    0.005.sh.ph,
-        //    const CustomVerticalDivider(),
-        //    0.03.sh.ph,
-        //    rowInfo('First name:', userInfo.firstName),
-        //    0.005.sh.ph,
-        //    const CustomVerticalDivider(),
-        //    0.03.sh.ph,
-        //    rowInfo('Last name:', userInfo.lastName),
-        //    0.005.sh.ph,
-        //    const CustomVerticalDivider(),
-        //    0.03.sh.ph,
-        //    rowInfo('Gender:', userInfo.gender),
-        //    0.005.sh.ph,
-        //    const CustomVerticalDivider()
-        //  ],
-       ),
+      child: const Column(
+          //  children: [
+          //    CustomText(
+          //        textType: TextStyleType.title,
+          //       text: userInfo!.username ?? 'no name',
+          //        textColor: AppColors.secondDark),
+          //    0.03.sh.ph,
+          //    CustomImageAvatar(image: userInfo.image, fromNetwork: true),
+          //    0.1.sh.ph,
+          //    rowInfo('Email:', userInfo.email),
+          //    0.005.sh.ph,
+          //    const CustomVerticalDivider(),
+          //    0.03.sh.ph,
+          //    rowInfo('First name:', userInfo.firstName),
+          //    0.005.sh.ph,
+          //    const CustomVerticalDivider(),
+          //    0.03.sh.ph,
+          //    rowInfo('Last name:', userInfo.lastName),
+          //    0.005.sh.ph,
+          //    const CustomVerticalDivider(),
+          //    0.03.sh.ph,
+          //    rowInfo('Gender:', userInfo.gender),
+          //    0.005.sh.ph,
+          //    const CustomVerticalDivider()
+          //  ],
+          ),
     );
   }
 

@@ -6,10 +6,8 @@ part of 'app_pages.dart';
 abstract class Routes {
   Routes._();
   static const HOME = _Paths.HOME;
-  static const TODOS = _Paths.TODOS;
-  static const ADDNEW = _Paths.ADDNEW;
+  static const DOCUMENTS = _Paths.DOCUMENTS;
   static const PROFILE = _Paths.PROFILE;
-  static const SEARCH = _Paths.SEARCH;
   static const LOGIN = _Paths.LOGIN;
   static const VERIFI = _Paths.VERIFI;
 }
@@ -17,10 +15,8 @@ abstract class Routes {
 abstract class _Paths {
   _Paths._();
   static const HOME = '/home';
-  static const TODOS = '/todos';
-  static const ADDNEW = '/add_new';
+  static const DOCUMENTS = '/documents';
   static const PROFILE = '/profile';
-  static const SEARCH = '/seach';
   static const LOGIN = '/login';
   static const VERIFI = '/verification';
 }
