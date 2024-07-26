@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:graduation/app/core/utils/general_utils.dart';
 import 'package:graduation/app/modules/forget_password/views/forget_password.dart';
 import 'package:graduation/app/modules/sign_up/view/sign_up_view.dart';
+import 'package:graduation/app/routes/app_pages.dart';
 import 'package:graduation/global/custom_widgets/custom_app_layout.dart';
 import 'package:graduation/global/custom_widgets/custom_button.dart';
 import 'package:graduation/global/custom_widgets/custom_text.dart';
@@ -58,6 +59,7 @@ class LoginView extends GetView<LoginController> {
              // if (controller.globalKey.currentState!.validate()) {
              // controller.login();
              // }
+             Get.toNamed(Routes.HOME);
             },
           ),
           0.005.sh.ph,

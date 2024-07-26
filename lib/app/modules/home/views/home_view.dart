@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:graduation/app/core/utils/general_utils.dart';
-import 'package:graduation/app/modules/home/views/add_new_todo_view.dart';
 import 'package:graduation/app/modules/home/views/all_todos_view.dart';
+import 'package:graduation/app/modules/home/views/documents_view.dart';
 import 'package:graduation/app/modules/home/views/my_todos_view.dart';
 import 'package:graduation/app/modules/home/views/profile_view.dart';
 import 'package:graduation/global/shared/app_colors.dart';
@@ -97,7 +97,7 @@ class HomeView extends GetView<HomeController> {
           physics: const NeverScrollableScrollPhysics(),
           children: [
             AllTodosView(),
-            AddNewTodoView(),
+            DocumentsView(),
             ProfileView(),
             MyTodosView()
           ],

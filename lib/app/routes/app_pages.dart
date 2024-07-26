@@ -5,8 +5,8 @@ import 'package:graduation/app/modules/home/bindings/add_new_binding.dart';
 import 'package:graduation/app/modules/home/bindings/all_todos_binding.dart';
 import 'package:graduation/app/modules/home/bindings/my_todos_binding.dart';
 import 'package:graduation/app/modules/home/bindings/profile_binding.dart';
-import 'package:graduation/app/modules/home/views/add_new_todo_view.dart';
 import 'package:graduation/app/modules/home/views/all_todos_view.dart';
+import 'package:graduation/app/modules/home/views/documents_view.dart';
 import 'package:graduation/app/modules/home/views/my_todos_view.dart';
 import 'package:graduation/app/modules/home/views/profile_view.dart';
 
@@ -30,7 +30,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.ADDNEW,
-      page: () => AddNewTodoView(),
+      page: () => DocumentsView(),
       binding: AddNewBinding(),
     ),
     GetPage(

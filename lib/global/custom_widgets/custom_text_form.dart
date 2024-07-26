@@ -26,6 +26,7 @@ class CustomTextForm extends StatelessWidget {
   final double? borderRadius;
   final TextEditingController? controller;
   final double? fieldWidth;
+  final double? fieldheight;
   final String? hint;
   final Color? hintColor;
   final Color? borderColor;
@@ -87,13 +88,15 @@ class CustomTextForm extends StatelessWidget {
       this.hintSize,
       this.focusBorderColor,
       this.enabledBorderColor,
-      this.focusedBorder,
+      this.focusedBorder, 
+      this.fieldheight,
       });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: fieldWidth?.w ?? 0.95.sw,
+      height: fieldheight?.w??0.15.sw,
       child: FocusScope(
         child: Focus(
           onFocusChange: (t) {

@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:graduation/app/core/services/base_controller.dart';
 
-class AddNewTodoController extends BaseController {
+class DocumentsController extends BaseController {
   TextEditingController todoController = TextEditingController();
   GlobalKey<FormState> todoKey = GlobalKey();
   void addNew() {
