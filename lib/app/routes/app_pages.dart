@@ -1,19 +1,15 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:get/get.dart';
-import 'package:graduation/app/modules/home/bindings/add_new_binding.dart';
-import 'package:graduation/app/modules/home/bindings/all_todos_binding.dart';
-import 'package:graduation/app/modules/home/bindings/my_todos_binding.dart';
+import 'package:graduation/app/modules/auth/verification/verification_view/verification_view.dart';
 import 'package:graduation/app/modules/home/bindings/profile_binding.dart';
-import 'package:graduation/app/modules/home/views/add_new_todo_view.dart';
-import 'package:graduation/app/modules/home/views/all_todos_view.dart';
-import 'package:graduation/app/modules/home/views/my_todos_view.dart';
+import 'package:graduation/app/modules/home/bindings/verification_binding.dart';
 import 'package:graduation/app/modules/home/views/profile_view.dart';
 
+import '../modules/auth/login/binding/login_binding.dart';
+import '../modules/auth/login/view/login_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
-import '../modules/login/binding/login_binding.dart';
-import '../modules/login/view/login_view.dart';
 
 part 'app_routes.dart';
 
@@ -29,29 +25,19 @@ class AppPages {
       binding: HomeBinding(),
     ),
     GetPage(
-      name: _Paths.ADDNEW,
-      page: () => AddNewTodoView(),
-      binding: AddNewBinding(),
-    ),
-    GetPage(
-      name: _Paths.TODOS,
-      page: () => AllTodosView(),
-      binding: AllTodosBinding(),
-    ),
-    GetPage(
       name: _Paths.PROFILE,
       page: () => ProfileView(),
       binding: ProfileBinding(),
     ),
     GetPage(
-      name: _Paths.SEARCH,
-      page: () => MyTodosView(),
-      binding: MyTodosBinding(),
-    ),
-    GetPage(
       name: _Paths.LOGIN,
       page: () => LoginView(),
       binding: LoginBinding(),
+    ),
+    GetPage(
+      name: _Paths.VERIFI,
+      page: () => VerificationView(),
+      binding: VerificationBinding(),
     ),
   ];
 }

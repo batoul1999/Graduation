@@ -1,4 +1,5 @@
 import 'package:bot_toast/bot_toast.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:graduation/app/core/data/models/apis/todos_docs_models/get_all_todos_model.dart';
 import 'package:graduation/app/core/enums/operation_type.dart';
@@ -6,6 +7,10 @@ import 'package:graduation/app/core/enums/request_status.dart';
 import 'package:graduation/app/core/utils/general_utils.dart';
 
 class BaseController extends GetxController {
+  final TextEditingController nameController =
+      TextEditingController(text: 'batoul');
+  final TextEditingController passwordController =
+      TextEditingController(text: 'Test@1234');
   RxBool success = false.obs;
   RxBool completed = false.obs;
   RxList<Todos> todosList = <Todos>[].obs;

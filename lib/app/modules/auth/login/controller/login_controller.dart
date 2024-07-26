@@ -11,16 +11,16 @@ class LoginController extends BaseController {
       TextEditingController(text: 'emilys');
   final TextEditingController passwordController =
       TextEditingController(text: 'emilyspass');
-  GlobalKey<FormState> globalKey = GlobalKey();
+  GlobalKey<FormState> formKey = GlobalKey();
 
   void login() {
     errorMessage.value = '';
     runFullLoadingFutureFunction(
         function: AuthRepository()
             .login(
-                email: emailController.text,
-                password: passwordController.text,
-                )
+      email: emailController.text,
+      password: passwordController.text,
+    )
             .then((value) {
       if (value.$1 != null) {
         errorMessage.value = value.$1!;
@@ -31,5 +31,11 @@ class LoginController extends BaseController {
         Get.toNamed(Routes.HOME);
       }
     }));
+  }
+
+  void fakeLogin() {
+    runFullLoadingFutureFunction(
+        function: Future.delayed(const Duration(seconds: 3))
+            .then((value) => Get.offAllNamed(Routes.HOME)));
   }
 }
