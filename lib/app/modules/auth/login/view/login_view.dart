@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:graduation/app/core/utils/general_utils.dart';
-import 'package:graduation/app/modules/auth/forget_password/views/forget_password.dart';
 import 'package:graduation/app/modules/auth/sign_up/view/sign_up_view.dart';
+import 'package:graduation/app/routes/app_pages.dart';
 import 'package:graduation/global/custom_widgets/custom_app_layout.dart';
 import 'package:graduation/global/custom_widgets/custom_button.dart';
 import 'package:graduation/global/custom_widgets/custom_text.dart';
@@ -66,7 +66,7 @@ class LoginView extends GetView<LoginController> {
               textSize: 12.sp,
               decoration: TextDecoration.none,
               onPressed: () {
-                Get.to(ForgetPassword());
+                Get.toNamed(Routes.RESETPASSWORD);
               }),
           Obx(
             () => Text(

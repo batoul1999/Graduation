@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:graduation/app/core/utils/general_utils.dart';
-import 'package:graduation/app/modules/auth/forget_password/controller/forget_password_controller.dart';
-import 'package:graduation/app/modules/auth/forget_password/views/verification_view.dart';
+import 'package:graduation/app/modules/auth/reset_password/controller/reset_password_controller.dart';
 import 'package:graduation/global/custom_widgets/custom_app_layout.dart';
 import 'package:graduation/global/custom_widgets/custom_button.dart';
 import 'package:graduation/global/custom_widgets/custom_text.dart';
@@ -11,10 +10,10 @@ import 'package:graduation/global/custom_widgets/custom_text_form.dart';
 import 'package:graduation/global/shared/app_colors.dart';
 
 // ignore: must_be_immutable
-class ForgetPassword extends GetView<ForgetPasswordController> {
+class ResetPasswordView extends GetView<ResetPasswordController> {
   @override
-  ForgetPasswordController controller = Get.put(ForgetPasswordController());
-  ForgetPassword({Key? key}) : super(key: key);
+  ResetPasswordController controller = Get.put(ResetPasswordController());
+  ResetPasswordView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +48,7 @@ class ForgetPassword extends GetView<ForgetPasswordController> {
           CustomButton(
               text: 'Send',
               onPressed: () {
-                Get.to(const VerificationScreen());
+                controller.fakeSending();
               }),
         ],
       ),
