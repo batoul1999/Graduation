@@ -48,7 +48,7 @@ class ForgetPassword extends GetView<ForgetPasswordController> {
          CustomButton(
                   text: 'Send', 
                   onPressed:() {
-                   Get.to( const VerificationView()); 
+                   Get.to( const VerificationScreen()); 
                   }
                     ),
         ],

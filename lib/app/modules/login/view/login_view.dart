@@ -31,7 +31,7 @@ class LoginView extends GetView<LoginController> {
     return Form(
       key: controller.globalKey,
       child: Column(
-        children: [
+      children: [
           0.1.sh.ph,
           CustomTextForm(
             controller: controller.emailController,
@@ -55,9 +55,9 @@ class LoginView extends GetView<LoginController> {
           CustomButton(
             text: 'Login',
             onPressed: () {
-              if (controller.globalKey.currentState!.validate()) {
-                controller.login();
-              }
+             // if (controller.globalKey.currentState!.validate()) {
+             // controller.login();
+             // }
             },
           ),
           0.005.sh.ph,
