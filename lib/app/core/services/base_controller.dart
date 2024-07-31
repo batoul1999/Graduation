@@ -88,6 +88,7 @@ class BaseController extends GetxController {
   }
 
   void getAllDocuments() {
+    documentsList.clear();
     documentsList.addAll(GetAllDocsModel.fromJson(docsMap).documents!);
     success.value = true;
   }

@@ -22,72 +22,80 @@ class SignUpView extends GetView<SignUpController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        resizeToAvoidBottomInset: false,
         body: CustomAppLayout(forWardWidget: registerationWidget()));
   }
 
   Widget registerationWidget() {
     return Form(
       key: controller.formKey,
-      child: Column(
+      child: ListView(
         children: [
-          0.03.sh.ph,
-          CustomTextForm(
-            controller: controller.emailController,
-            hint: 'Email',
-            validator: (value) => (value!.isEmpty) ? 'email is required' : null,
-            sufexIcon: Icon(Icons.email, color: AppColors.secondDark),
-            keyboardType: TextInputType.emailAddress,
-          ),
-          0.015.sh.ph,
-          CustomTextForm(
-            controller: controller.nameController,
-            hint: 'Name',
-            validator: (value) => (value!.isEmpty) ? 'name is required' : null,
-            sufexIcon: Icon(Icons.person, color: AppColors.secondDark),
-            keyboardType: TextInputType.visiblePassword,
-          ),
-          // 0.015.sh.ph,
-          // CustomTextForm(
-          //   controller: controller.departmentController,
-          //   hint: 'Department',
-          //   validator: (value) =>
-          //       (value!.isEmpty) ? 'department is required' : null,
-          //   sufexIcon: Icon(Icons.document_scanner_rounded,
-          //       color: AppColors.secondDark),
-          // ),
-          0.015.sh.ph,
-          CustomTextForm(
-            controller: controller.passwordController,
-            hint: 'password',
-            validator: (value) =>
-                (value!.isEmpty) ? 'password is required' : null,
-            sufexIcon: Icon(Icons.password, color: AppColors.secondDark),
-            keyboardType: TextInputType.visiblePassword,
-          ),
-          0.03.sh.ph,
-          CustomButton(
-            text: 'Sign Up',
-            onPressed: () {
-              if (controller.formKey.currentState!.validate()) {
-                controller.fakeSignUp();
-              }
-            },
-          ),
-          const Spacer(),
-          Padding(
-            padding: EdgeInsetsDirectional.only(start: 0.2.sw),
-            child: Row(
+          SizedBox(
+            width: 1.sw,
+            height: 0.53.sh,
+            child: Column(
               children: [
-                CustomText(
-                    textType: TextStyleType.small,
-                    textColor: AppColors.mainDark,
-                    text: "Allredy have an account?"),
-                CustomTextButton(
-                    text: "Log In",
-                    onPressed: () {
-                      Get.to(LoginView());
-                    })
+                CustomTextForm(
+                  controller: controller.emailController,
+                  hint: 'Email',
+                  validator: (value) =>
+                      (value!.isEmpty) ? 'email is required' : null,
+                  sufexIcon: Icon(Icons.email, color: AppColors.secondDark),
+                  keyboardType: TextInputType.emailAddress,
+                ),
+                0.015.sh.ph,
+                CustomTextForm(
+                  controller: controller.nameController,
+                  hint: 'Name',
+                  validator: (value) =>
+                      (value!.isEmpty) ? 'name is required' : null,
+                  sufexIcon: Icon(Icons.person, color: AppColors.secondDark),
+                  keyboardType: TextInputType.visiblePassword,
+                ),
+                0.015.sh.ph,
+                CustomTextForm(
+                  controller: controller.departmentController,
+                  hint: 'Department',
+                  validator: (value) =>
+                      (value!.isEmpty) ? 'department is required' : null,
+                  sufexIcon: Icon(Icons.document_scanner_rounded,
+                      color: AppColors.secondDark),
+                ),
+                0.015.sh.ph,
+                CustomTextForm(
+                  controller: controller.passwordController,
+                  hint: 'password',
+                  validator: (value) =>
+                      (value!.isEmpty) ? 'password is required' : null,
+                  sufexIcon: Icon(Icons.password, color: AppColors.secondDark),
+                  keyboardType: TextInputType.visiblePassword,
+                ),
+                0.03.sh.ph,
+                CustomButton(
+                  text: 'Sign Up',
+                  onPressed: () {
+                    if (controller.formKey.currentState!.validate()) {
+                      controller.fakeSignUp();
+                    }
+                  },
+                ),
+                const Spacer(),
+                Padding(
+                  padding: EdgeInsetsDirectional.only(start: 0.2.sw),
+                  child: Row(
+                    children: [
+                      CustomText(
+                          textType: TextStyleType.small,
+                          textColor: AppColors.mainDark,
+                          text: "Allredy have an account?"),
+                      CustomTextButton(
+                          text: "Log In",
+                          onPressed: () {
+                            Get.to(LoginView());
+                          })
+                    ],
+                  ),
+                ),
               ],
             ),
           ),

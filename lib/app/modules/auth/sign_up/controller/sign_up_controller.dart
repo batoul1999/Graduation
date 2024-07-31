@@ -6,7 +6,8 @@ import 'package:graduation/app/routes/app_pages.dart';
 class SignUpController extends BaseController {
   final TextEditingController emailController =
       TextEditingController(text: 'batoul999@gmail.com');
-  final TextEditingController departmentController = TextEditingController();
+  final TextEditingController departmentController =
+      TextEditingController(text: 'Network section');
 
   GlobalKey<FormState> formKey = GlobalKey();
   void fakeSignUp() {

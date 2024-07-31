@@ -29,8 +29,8 @@ class ProfileView extends GetView<ProfileController> {
                 Obx(() => Padding(
                       padding: EdgeInsetsDirectional.only(start: 0.05.sw),
                       child: Container(
-                        width: 0.4.sw,
-                        height: 0.5.sw,
+                        width: 0.39.sw,
+                        height: 0.193.sh,
                         decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             color: AppColors.whiteColor,

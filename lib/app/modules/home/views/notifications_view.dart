@@ -9,6 +9,7 @@ import 'package:graduation/app/core/utils/general_utils.dart';
 import 'package:graduation/app/modules/home/controllers/notifications_controller.dart';
 import 'package:graduation/global/custom_widgets/custom_text.dart';
 import 'package:graduation/global/shared/app_colors.dart';
+import 'package:shimmer/shimmer.dart';
 
 // ignore: must_be_immutable
 class NotificationsView extends GetView<NotificationsController> {
@@ -20,21 +21,23 @@ class NotificationsView extends GetView<NotificationsController> {
     return RefreshIndicator(
       color: AppColors.blackColor,
       onRefresh: () async {
-        controller.getAllDocuments();
+        controller.getAllNotifications();
       },
       child: Stack(
         children: [
           Obx(() => controller.success.value == true
               ? Padding(
                   padding: EdgeInsets.only(top: 0.08.sh),
-                  child: Obx(() => ListView.builder(
-                      shrinkWrap: true,
-                      primary: false,
-                      itemCount: controller.documentsList.length,
-                      itemBuilder: (context, index) {
-                        final notify = controller.documentsList[index];
-                        return todo(notification: notify);
-                      })),
+                  child: Obx(() => controller.isAllNotificationsLoading
+                      ? shimmerLoading()
+                      : ListView.builder(
+                          shrinkWrap: true,
+                          primary: false,
+                          itemCount: controller.documentsList.length,
+                          itemBuilder: (context, index) {
+                            final notify = controller.documentsList[index];
+                            return todo(notification: notify);
+                          })),
                 )
               : Padding(
                   padding: EdgeInsets.only(top: 0.16.sh),
@@ -63,10 +66,27 @@ class NotificationsView extends GetView<NotificationsController> {
           borderRadius: BorderRadius.circular(15.r),
           color: AppColors.secondDark),
       child: Center(
-        child: CustomText(
-            textType: TextStyleType.bodyBig,
-            text: "Notifications",
-            textColor: AppColors.whiteColor),
+        child: Row(
+          children: [
+            CustomText(
+                textType: TextStyleType.bodyBig,
+                text: "Notifications",
+                textColor: AppColors.whiteColor),
+            const Spacer(),
+            Obx(() => IconButton(
+                onPressed: () {
+                  controller.documentsList.isEmpty
+                      ? controller.getAllNotifications()
+                      : controller.documentsList.clear();
+                },
+                icon: Icon(
+                  controller.documentsList.isEmpty
+                      ? Icons.refresh
+                      : Icons.delete_forever,
+                  color: AppColors.whiteColor,
+                )))
+          ],
+        ),
       ),
     );
   }
@@ -89,7 +109,11 @@ class NotificationsView extends GetView<NotificationsController> {
               children: [
                 Icon(Icons.delete_forever, color: AppColors.whiteColor),
                 0.05.sw.pw,
-                const CustomText(textType: TextStyleType.body, text: 'delete')
+                CustomText(
+                  textType: TextStyleType.bodyBig,
+                  text: 'delete',
+                  textColor: AppColors.whiteColor,
+                )
               ],
             ),
           ),
@@ -156,5 +180,25 @@ class NotificationsView extends GetView<NotificationsController> {
         ),
       ),
     );
+  }
+
+  Widget shimmerLoading() {
+    return Shimmer.fromColors(
+        direction: ShimmerDirection.ltr,
+        baseColor: AppColors.secondBlue,
+        highlightColor: AppColors.greyColor.withOpacity(0.2),
+        child: ListView.builder(
+            shrinkWrap: true,
+            itemCount: 6,
+            itemBuilder: (context, index) {
+              return Container(
+                margin: EdgeInsets.symmetric(vertical: 0.005.sh),
+                decoration: const BoxDecoration(
+                  color: Color.fromARGB(255, 248, 248, 248),
+                ),
+                width: 0.95.sw,
+                height: 0.13.sh,
+              );
+            }));
   }
 }

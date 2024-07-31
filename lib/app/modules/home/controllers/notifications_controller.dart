@@ -1,3 +1,5 @@
+import 'package:graduation/app/core/enums/operation_type.dart';
+import 'package:graduation/app/core/enums/request_status.dart';
 import 'package:graduation/app/core/services/base_controller.dart';
 
 class NotificationsController extends BaseController {
@@ -20,8 +22,19 @@ class NotificationsController extends BaseController {
   // }
 
   @override
-  void onInit() {
-    getAllDocuments();
+  void onInit() async {
+    await getAllNotifications();
     super.onInit();
+  }
+
+  bool get isAllNotificationsLoading =>
+      requestStatus.value == RequestStatus.loading &&
+      listType.contains(OperationType.getAllNotifications);
+
+  Future<void> getAllNotifications() async {
+    await runLoadingFutureFunction(
+        type: OperationType.getAllNotifications,
+        function: Future.delayed(const Duration(seconds: 3))
+            .then((value) => getAllDocuments()));
   }
 }
