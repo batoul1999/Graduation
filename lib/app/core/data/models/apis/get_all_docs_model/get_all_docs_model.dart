@@ -28,6 +28,8 @@ class Documents {
   String? type;
   String? issuedBy;
   String? issuedDate;
+  String? imageUrl;
+  String? date;
 
   Documents(
       {this.id,
@@ -35,6 +37,8 @@ class Documents {
       this.description,
       this.type,
       this.issuedBy,
+      this.date,
+      this.imageUrl,
       this.issuedDate});
 
   Documents.fromJson(Map<String, dynamic> json) {
@@ -43,6 +47,8 @@ class Documents {
     description = json['description'];
     type = json['type'];
     issuedBy = json['issuedBy'];
+    imageUrl = json['image_url'];
+    imageUrl = json['date'];
     issuedDate = json['issuedDate'];
   }
 
@@ -51,6 +57,8 @@ class Documents {
     data['id'] = id;
     data['name'] = name;
     data['description'] = description;
+    data['image_url'] = imageUrl;
+    data['date'] = data;
     data['type'] = type;
     data['issuedBy'] = issuedBy;
     data['issuedDate'] = issuedDate;

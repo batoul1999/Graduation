@@ -6,19 +6,17 @@ part of 'app_pages.dart';
 abstract class Routes {
   Routes._();
   static const HOME = _Paths.HOME;
-  static const DOCUMENTS = _Paths.DOCUMENTS;
-  static const PROFILE = _Paths.PROFILE;
   static const LOGIN = _Paths.LOGIN;
   static const VERIFI = _Paths.VERIFI;
   static const RESETPASSWORD = _Paths.RESETPASSWORD;
+  static const DOCUMENTDETAILS = _Paths.DOCUMENTDETAILS;
 }
 
 abstract class _Paths {
   _Paths._();
   static const HOME = '/home';
-  static const DOCUMENTS = '/documents';
-  static const PROFILE = '/profile';
   static const LOGIN = '/login';
   static const VERIFI = '/verification';
   static const RESETPASSWORD = '/reset_password';
+  static const DOCUMENTDETAILS = '/document_details';
 }

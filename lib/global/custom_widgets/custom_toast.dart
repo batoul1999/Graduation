@@ -27,7 +27,7 @@ class CustomToast {
         switch (messagetype!) {
           case MessageType.showInfo:
             imageName = 'INFO';
-            shadowColor = AppColors.secondBlue;
+            shadowColor = AppColors.mainBlue.withOpacity(0.7);
             break;
 
           case MessageType.warning:
@@ -49,7 +49,7 @@ class CustomToast {
           onTap: cancelFunc, // Dismiss the toast when tapped
           child: Container(
             width: 270.w,
-            height: 120.h,
+            height: 85.h,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10.r),
@@ -79,6 +79,7 @@ class CustomToast {
                   heightText: 1,
                   text: message,
                   textColor: shadowColor,
+                  fontWeight: FontWeight.w500,
                   overflow: TextOverflow.ellipsis,
                   maxLines: message.length > 25 ? 3 : 1,
                   textType: message.length < 10

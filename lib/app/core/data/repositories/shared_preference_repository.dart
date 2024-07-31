@@ -5,13 +5,29 @@ import 'package:graduation/app/core/data/models/apis/auth_models/login_model.dar
 import 'package:graduation/app/core/enums/data_type.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
 class SharedPrefreanceRepository {
   SharedPreferences globalSharedPrefs = Get.find();
 
   static String prefFirstLogin = "first_login";
   static String prefTokenInfo = 'token_info';
   static String prefUserInfo = "user_info";
+  String prefSubStatus = 'sub_status';
+
+  setSubStatus(bool value) {
+    setPrefrance(
+      dataType: DataType.bool,
+      key: prefSubStatus,
+      value: value,
+    );
+  }
+
+  bool getSubStatus() {
+    if (globalSharedPrefs.containsKey(prefSubStatus)) {
+      return getPrefrance(key: prefSubStatus);
+    } else {
+      return true;
+    }
+  }
 
   setFirstLogin(bool value) {
     setPrefrance(dataType: DataType.bool, key: prefFirstLogin, value: value);

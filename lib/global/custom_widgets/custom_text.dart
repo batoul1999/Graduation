@@ -51,7 +51,6 @@ class CustomText extends StatelessWidget {
             softWrap: true,
             maxLines: maxLines ?? 1,
             style: getTextStyle(),
-            
           )
         : RichText(
             text: TextSpan(
@@ -75,7 +74,6 @@ class CustomText extends StatelessWidget {
           color: textColor,
           fontSize: 35.sp,
           fontWeight: FontWeight.w400,
-          overflow: overflow ?? TextOverflow.visible,
         );
 
       case TextStyleType.subTitle:
@@ -86,7 +84,6 @@ class CustomText extends StatelessWidget {
           color: textColor,
           fontSize: 22.sp,
           fontWeight: fontWeight ?? FontWeight.w400,
-          overflow: overflow ?? TextOverflow.visible,
         );
 
       case TextStyleType.bodyBig:
@@ -96,8 +93,7 @@ class CustomText extends StatelessWidget {
           decoration: textDecoration,
           color: textColor,
           fontSize: 18.sp,
-          fontWeight: fontWeight ?? FontWeight.w600,
-          overflow: overflow ?? TextOverflow.visible,
+          fontWeight: fontWeight ?? FontWeight.w400,
         );
 
       case TextStyleType.body:
@@ -108,7 +104,6 @@ class CustomText extends StatelessWidget {
           color: textColor,
           fontSize: fontSize ?? 14.sp,
           fontWeight: fontWeight ?? FontWeight.w400,
-          overflow: overflow ?? TextOverflow.visible,
         );
 
       case TextStyleType.small:
@@ -119,7 +114,6 @@ class CustomText extends StatelessWidget {
           color: textColor,
           fontSize: 14.sp,
           fontWeight: fontWeight ?? FontWeight.w200,
-          overflow: overflow ?? TextOverflow.visible,
         );
 
       case TextStyleType.custom:
@@ -130,7 +124,6 @@ class CustomText extends StatelessWidget {
           color: textColor,
           fontSize: fontSize,
           fontWeight: fontWeight,
-          overflow: overflow ?? TextOverflow.visible,
         );
     }
   }

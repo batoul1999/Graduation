@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:graduation/app/core/data/repositories/shared_preference_repository.dart';
+import 'package:graduation/app/core/services/fcm_service.dart';
 import 'package:graduation/global/shared/app_colors.dart';
 
 extension EmptyPadding on num {
@@ -15,6 +16,7 @@ extension EmptyPadding on num {
 //HiveRepository get storage => Get.find<HiveRepository>();
 SharedPrefreanceRepository get prefStorage =>
     Get.find<SharedPrefreanceRepository>();
+FcmService get fcmService => Get.find<FcmService>();
 
 void customLoader() {
   BotToast.showCustomLoading(

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:graduation/app/core/utils/general_utils.dart';
-import 'package:graduation/app/modules/home/views/all_todos_view.dart';
+import 'package:graduation/app/modules/home/views/arabic_editor_view.dart';
 import 'package:graduation/app/modules/home/views/documents_view.dart';
-import 'package:graduation/app/modules/home/views/my_todos_view.dart';
+import 'package:graduation/app/modules/home/views/notifications_view.dart';
 import 'package:graduation/app/modules/home/views/profile_view.dart';
 import 'package:graduation/global/shared/app_colors.dart';
 
@@ -20,8 +20,9 @@ class HomeView extends GetView<HomeController> {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       bottomNavigationBar: Container(
-        margin: EdgeInsetsDirectional.only(start: 0.04.sw,end:  0.04.sw,bottom:  0.04.sw),
-        height:0.07.sh,
+        margin: EdgeInsetsDirectional.only(
+            start: 0.04.sw, end: 0.04.sw, bottom: 0.04.sw),
+        height: 0.07.sh,
         decoration: BoxDecoration(
           color: AppColors.whiteColor,
           boxShadow: [
@@ -98,10 +99,10 @@ class HomeView extends GetView<HomeController> {
           scrollDirection: Axis.horizontal,
           physics: const NeverScrollableScrollPhysics(),
           children: [
-            AllTodosView(),
             DocumentsView(),
-            ProfileView(),
-            MyTodosView()
+            ArabicEditorView(),
+            NotificationsView(),
+            ProfileView()
           ],
         ),
       ),
@@ -111,7 +112,7 @@ class HomeView extends GetView<HomeController> {
   List<IconData> listOfIcons = [
     Icons.task,
     Icons.add_box,
+    Icons.notifications_active,
     Icons.person_rounded,
-    Icons.search
   ];
 }

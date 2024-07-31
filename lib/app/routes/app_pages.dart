@@ -5,8 +5,8 @@ import 'package:graduation/app/modules/auth/reset_password/reset_password_bindin
 import 'package:graduation/app/modules/auth/reset_password/view/reset_password_view.dart';
 import 'package:graduation/app/modules/auth/verification/verification_binding/verification_binding.dart';
 import 'package:graduation/app/modules/auth/verification/verification_view/verification_view.dart';
-import 'package:graduation/app/modules/home/bindings/profile_binding.dart';
-import 'package:graduation/app/modules/home/views/profile_view.dart';
+import 'package:graduation/app/modules/document_details/bindings/document_details_binding.dart';
+import 'package:graduation/app/modules/document_details/view/document_details_view.dart';
 
 import '../modules/auth/login/binding/login_binding.dart';
 import '../modules/auth/login/view/login_view.dart';
@@ -27,11 +27,6 @@ class AppPages {
       binding: HomeBinding(),
     ),
     GetPage(
-      name: _Paths.PROFILE,
-      page: () => ProfileView(),
-      binding: ProfileBinding(),
-    ),
-    GetPage(
       name: _Paths.LOGIN,
       page: () => LoginView(),
       binding: LoginBinding(),
@@ -45,6 +40,11 @@ class AppPages {
       name: _Paths.RESETPASSWORD,
       page: () => ResetPasswordView(),
       binding: ResetPasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.DOCUMENTDETAILS,
+      page: () => DocumentDetailsView(),
+      binding: DocumentDetailsBinding(),
     ),
   ];
 }

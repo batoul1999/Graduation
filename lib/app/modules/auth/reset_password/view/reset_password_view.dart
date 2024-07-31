@@ -19,7 +19,7 @@ class ResetPasswordView extends GetView<ResetPasswordController> {
     return Scaffold(
         body: CustomAppLayout(
       forWardWidget: registerationWidget(),
-      mainIcon: Icons.pin,
+      mainIcon: const Icon(Icons.pin),
     ));
   }
 
