@@ -8,6 +8,8 @@ class ProfileController extends BaseController {
   RxString profileImage = ''.obs;
   TextEditingController emailController = TextEditingController();
   TextEditingController departmentController = TextEditingController();
+  RxBool openDrawer = false.obs;
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
   void fakeUpdating() {
     if (nameController.text.isEmpty &&
         emailController.text.isEmpty &&

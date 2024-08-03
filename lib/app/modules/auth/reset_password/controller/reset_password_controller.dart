@@ -4,8 +4,7 @@ import 'package:graduation/app/core/services/base_controller.dart';
 import 'package:graduation/app/routes/app_pages.dart';
 
 class ResetPasswordController extends BaseController {
-  final TextEditingController emailController =
-      TextEditingController(text: 'emilys');
+  final TextEditingController emailController = TextEditingController(text: '');
   GlobalKey<FormState> globalKey = GlobalKey();
 
   Future<void> fakeSending() async {

@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/global/shared/app_colors.dart';
 
-
 // ignore: must_be_immutable
 class CustomTextForm extends StatelessWidget {
   final FormFieldValidator<String>? validator;
@@ -48,55 +47,55 @@ class CustomTextForm extends StatelessWidget {
   final InputBorder? focusedBorder;
 
   // ignore: prefer_const_constructors_in_immutables
-  CustomTextForm(
-      {super.key,
-      this.validator,
-      this.onsaved,
-      this.onFieldSubmitted,
-      this.text,
-      this.keyboardType,
-      this.label,
-      this.icon,
-      this.requiered,
-      this.maxLength,
-      this.color,
-      this.textColor,
-      this.inputFormatters,
-      this.alignLabelWithHint,
-      this.maxLines,
-      this.minLines,
-      this.fontSize,
-      this.borderRadius,
-      this.controller,
-      this.fieldWidth,
-      this.hint,
-      this.hintColor,
-      this.counterStyle,
-      this.enabled = true,
-      this.onChanged,
-      this.contentPadding,
-      this.decoration,
-      this.textDirection,
-      this.style,
-      this.cursorColor,
-      this.sufexIcon,
-      this.textInputAction,
-      this.borderwidth,
-      this.borderColor,
-      this.showNumberOfCharacter = true,
-      this.capitalLetter,
-      this.hintSize,
-      this.focusBorderColor,
-      this.enabledBorderColor,
-      this.focusedBorder, 
-      this.fieldheight,
-      });
+  CustomTextForm({
+    super.key,
+    this.validator,
+    this.onsaved,
+    this.onFieldSubmitted,
+    this.text,
+    this.keyboardType,
+    this.label,
+    this.icon,
+    this.requiered,
+    this.maxLength,
+    this.color,
+    this.textColor,
+    this.inputFormatters,
+    this.alignLabelWithHint,
+    this.maxLines,
+    this.minLines,
+    this.fontSize,
+    this.borderRadius,
+    this.controller,
+    this.fieldWidth,
+    this.hint,
+    this.hintColor,
+    this.counterStyle,
+    this.enabled = true,
+    this.onChanged,
+    this.contentPadding,
+    this.decoration,
+    this.textDirection,
+    this.style,
+    this.cursorColor,
+    this.sufexIcon,
+    this.textInputAction,
+    this.borderwidth,
+    this.borderColor,
+    this.showNumberOfCharacter = true,
+    this.capitalLetter,
+    this.hintSize,
+    this.focusBorderColor,
+    this.enabledBorderColor,
+    this.focusedBorder,
+    this.fieldheight,
+  });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: fieldWidth?.w ?? 0.95.sw,
-      height: fieldheight?.w??0.15.sw,
+      height: fieldheight?.w ?? 0.15.sw,
       child: FocusScope(
         child: Focus(
           onFocusChange: (t) {
@@ -154,8 +153,8 @@ class CustomTextForm extends StatelessWidget {
                     borderRadius: BorderRadius.circular(borderRadius ?? 9.r),
                   ),
                   errorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 2.w, color: Colors.red),
-                    borderRadius: BorderRadius.circular(borderRadius ?? 9.r),
+                    borderSide: BorderSide(width: 1.w, color: Colors.red),
+                    borderRadius: BorderRadius.circular(borderRadius ?? 5.r),
                   ),
                   focusedBorder: focusedBorder ??
                       OutlineInputBorder(

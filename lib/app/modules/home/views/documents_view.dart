@@ -44,7 +44,7 @@ class DocumentsView extends GetView<DocumentsController> {
                   CustomTextForm(
                     fieldWidth: 0.9.sw,
                     maxLines: 1,
-                    hint: 'search',
+                    hint: 'بحث',
                     onChanged: (value) {
                       value!.isEmpty
                           ? controller.filteredList.clear()

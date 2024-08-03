@@ -3,11 +3,10 @@ import 'package:get/get.dart';
 import 'package:graduation/app/core/services/base_controller.dart';
 import 'package:graduation/app/routes/app_pages.dart';
 
-class SignUpController extends BaseController {
-  final TextEditingController emailController =
-      TextEditingController(text: 'batoul999@gmail.com');
-  final TextEditingController departmentController =
-      TextEditingController(text: 'Network section');
+class AddNewEmployeeController extends BaseController {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController departmentController = TextEditingController();
+  final TextEditingController genderController = TextEditingController();
 
   GlobalKey<FormState> formKey = GlobalKey();
   void fakeSignUp() {

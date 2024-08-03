@@ -7,8 +7,7 @@ import 'package:graduation/app/core/utils/general_utils.dart';
 import 'package:graduation/app/routes/app_pages.dart';
 
 class LoginController extends BaseController {
-  final TextEditingController emailController =
-      TextEditingController(text: 'emilys');
+  final TextEditingController emailController = TextEditingController(text: '');
   GlobalKey<FormState> formKey = GlobalKey();
 
   void login() {

@@ -17,93 +17,95 @@ class HomeView extends GetView<HomeController> {
   HomeController controller = Get.put(HomeController());
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.whiteColor,
-      bottomNavigationBar: Container(
-        margin: EdgeInsetsDirectional.only(
-            start: 0.04.sw, end: 0.04.sw, bottom: 0.04.sw),
-        height: 0.07.sh,
-        decoration: BoxDecoration(
-          color: AppColors.whiteColor,
-          boxShadow: [
-            BoxShadow(
-              color: AppColors.blackColor.withOpacity(0.25),
-              blurRadius: 15,
-              offset: const Offset(0, 10),
-            ),
-          ],
-          borderRadius: BorderRadius.circular(15.r),
-        ),
-        child: ListView.builder(
-          itemCount: 4,
-          scrollDirection: Axis.horizontal,
-          padding: EdgeInsets.symmetric(horizontal: 1.sw * .024),
-          itemBuilder: (context, index) => InkWell(
-            onTap: () {
-              controller.currentIndex.value = index;
-              controller.pageController.jumpToPage(index);
-            },
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-            child: Obx(() => Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    0.001.sh.ph,
-                    Icon(
-                      listOfIcons[index],
-                      size: 1.sw * .076,
-                      color: index == controller.currentIndex.value
-                          ? AppColors.mainBlue
-                          : AppColors.greyColor,
-                    ),
-                    AnimatedContainer(
-                      duration: const Duration(milliseconds: 1000),
-                      curve: Curves.fastLinearToSlowEaseIn,
-                      margin: EdgeInsets.only(
-                        bottom: index == controller.currentIndex.value
-                            ? 0
-                            : 1.sw * .029,
-                        right: 1.sw * .0422,
-                        left: 1.sw * .0422,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: AppColors.whiteColor,
+        bottomNavigationBar: Container(
+          margin: EdgeInsetsDirectional.only(
+              start: 0.04.sw, end: 0.04.sw, bottom: 0.04.sw),
+          height: 0.07.sh,
+          decoration: BoxDecoration(
+            color: AppColors.whiteColor,
+            boxShadow: [
+              BoxShadow(
+                color: AppColors.blackColor.withOpacity(0.25),
+                blurRadius: 15,
+                offset: const Offset(0, 10),
+              ),
+            ],
+            borderRadius: BorderRadius.circular(15.r),
+          ),
+          child: ListView.builder(
+            itemCount: 4,
+            scrollDirection: Axis.horizontal,
+            padding: EdgeInsets.symmetric(horizontal: 1.sw * .024),
+            itemBuilder: (context, index) => InkWell(
+              onTap: () {
+                controller.currentIndex.value = index;
+                controller.pageController.jumpToPage(index);
+              },
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              child: Obx(() => Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      0.001.sh.ph,
+                      Icon(
+                        listOfIcons[index],
+                        size: 1.sw * .076,
+                        color: index == controller.currentIndex.value
+                            ? AppColors.mainBlue
+                            : AppColors.greyColor,
                       ),
-                      width: 1.sw * .128,
-                      height: index == controller.currentIndex.value
-                          ? 1.sw * .014
-                          : 0,
-                      decoration: BoxDecoration(
-                        color: AppColors.mainBlue,
-                        borderRadius: BorderRadius.vertical(
-                          top: Radius.circular(10.r),
+                      AnimatedContainer(
+                        duration: const Duration(milliseconds: 1000),
+                        curve: Curves.fastLinearToSlowEaseIn,
+                        margin: EdgeInsets.only(
+                          bottom: index == controller.currentIndex.value
+                              ? 0
+                              : 1.sw * .029,
+                          right: 1.sw * .0422,
+                          left: 1.sw * .0422,
+                        ),
+                        width: 1.sw * .128,
+                        height: index == controller.currentIndex.value
+                            ? 1.sw * .014
+                            : 0,
+                        decoration: BoxDecoration(
+                          color: AppColors.mainBlue,
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(10.r),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                )),
+                    ],
+                  )),
+            ),
           ),
         ),
-      ),
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                AppColors.gradientBlue,
-                AppColors.gradientBlue.withOpacity(1),
-                AppColors.gradientBlue.withOpacity(0.7),
-                AppColors.whiteColor
-              ]),
-        ),
-        child: PageView(
-          controller: controller.pageController,
-          scrollDirection: Axis.horizontal,
-          physics: const NeverScrollableScrollPhysics(),
-          children: [
-            DocumentsView(),
-            ArabicEditorView(),
-            NotificationsView(),
-            ProfileView()
-          ],
+        body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  AppColors.gradientBlue,
+                  AppColors.gradientBlue.withOpacity(1),
+                  AppColors.gradientBlue.withOpacity(0.7),
+                  AppColors.whiteColor
+                ]),
+          ),
+          child: PageView(
+            controller: controller.pageController,
+            scrollDirection: Axis.horizontal,
+            physics: const NeverScrollableScrollPhysics(),
+            children: [
+              DocumentsView(),
+              ArabicEditorView(),
+              NotificationsView(),
+              ProfileView()
+            ],
+          ),
         ),
       ),
     );

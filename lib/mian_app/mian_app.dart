@@ -17,10 +17,11 @@ class MainApp extends GetView<MainAppController> {
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
         builder: BotToastInit(),
+        locale: const Locale('ar'),
         navigatorObservers: [BotToastNavigatorObserver()],
         title: "Graduation",
-        initialRoute:Routes.LOGIN,
-          //  prefStorage.getFirstLogin() == false ? Routes.LOGIN : Routes.HOME,
+        initialRoute: Routes.LOGIN,
+        //  prefStorage.getFirstLogin() == false ? Routes.LOGIN : Routes.HOME,
         getPages: AppPages.routes,
         initialBinding: MainBindings(),
       ),

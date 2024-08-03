@@ -10,10 +10,9 @@ import 'package:graduation/app/core/utils/general_utils.dart';
 import 'package:image_picker/image_picker.dart';
 
 class BaseController extends GetxController {
-  final TextEditingController nameController =
-      TextEditingController(text: 'batoul');
+  final TextEditingController nameController = TextEditingController(text: '');
   final TextEditingController passwordController =
-      TextEditingController(text: 'Test@1234');
+      TextEditingController(text: '');
   RxBool success = false.obs;
   RxBool completed = false.obs;
 

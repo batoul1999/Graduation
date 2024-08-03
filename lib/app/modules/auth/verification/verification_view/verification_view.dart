@@ -32,8 +32,8 @@ class VerificationView extends GetView<VerificationController> {
                   CustomText(
                       textType: TextStyleType.small,
                       textColor: AppColors.mainDark,
-                      text: "Don't recieve code yet?"),
-                  CustomTextButton(text: "Resend", onPressed: () {})
+                      text: " لم يتم استلام الرمز؟"),
+                  CustomTextButton(text: "إعادة الإرسال", onPressed: () {})
                 ],
               ),
             )

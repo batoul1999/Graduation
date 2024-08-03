@@ -77,23 +77,23 @@ class DocumentDetailsView extends GetView<DocumentDetailsController> {
                             children: [
                               detailsInfo(
                                   controller: controller.employeeController,
-                                  text: 'Employee:'),
+                                  text: 'الموظف:'),
                               0.01.sh.ph,
                               detailsInfo(
                                   controller: controller.destinationController,
-                                  text: 'destination:'),
+                                  text: 'الوجهة:'),
                               0.01.sh.ph,
                               detailsInfo(
                                   controller: controller.studentController,
-                                  text: 'student:'),
+                                  text: 'الطالب:'),
                               0.01.sh.ph,
                               detailsInfo(
                                   controller: controller.yearController,
-                                  text: 'year:'),
+                                  text: 'السنة:'),
                               0.03.sh.ph,
                               const CustomText(
                                   textType: TextStyleType.body,
-                                  text: 'Attachments:'),
+                                  text: 'المرفقات:'),
                               0.008.sh.ph,
                               Obx(() => SizedBox(
                                     width: 0.95.sw,
@@ -263,11 +263,11 @@ class DocumentDetailsView extends GetView<DocumentDetailsController> {
         const Spacer(),
         CustomTextForm(
           fieldheight: 40,
-          fieldWidth: 240,
+          fieldWidth: 260,
           controller: controller,
           contentPadding:
               EdgeInsets.symmetric(vertical: 0.02.sw, horizontal: 0.02.sw),
-          validator: (value) => (value!.isEmpty) ? 'field is required' : null,
+          validator: (value) => (value!.isEmpty) ? 'هذا الحقل مطلوب' : null,
           keyboardType: TextInputType.name,
         ),
       ],
@@ -276,7 +276,7 @@ class DocumentDetailsView extends GetView<DocumentDetailsController> {
 
   Future<void> cameraOnPressedAction() async {
     await Get.defaultDialog(
-        title: 'take option',
+        title: 'اخيار مرفق:',
         titleStyle: TextStyle(color: AppColors.mainBlue),
         content: SizedBox(
           width: 1.sw,
@@ -284,7 +284,7 @@ class DocumentDetailsView extends GetView<DocumentDetailsController> {
           child: Row(
             children: [
               CustomButton(
-                text: 'Camera',
+                text: 'الكاميرا',
                 onPressed: () async {
                   await controller
                       .pickFile(type: FileTypeEnum.camera)
@@ -295,7 +295,7 @@ class DocumentDetailsView extends GetView<DocumentDetailsController> {
               ),
               0.02.sw.pw,
               CustomButton(
-                text: 'Gallery',
+                text: 'معرض الصور',
                 onPressed: () async {
                   await controller
                       .pickFile(type: FileTypeEnum.gallery, allowMultiple: true)
@@ -306,7 +306,7 @@ class DocumentDetailsView extends GetView<DocumentDetailsController> {
               ),
               0.02.sw.pw,
               CustomButton(
-                text: 'File',
+                text: 'الملفات',
                 onPressed: () async {
                   await controller
                       .pickFile(type: FileTypeEnum.file, allowMultiple: true)

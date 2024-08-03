@@ -38,7 +38,7 @@ class ResetPasswordView extends GetView<ResetPasswordController> {
           ),
           CustomText(
             textType: TextStyleType.small,
-            text: 'Enter your email to receive PIN Code',
+            text: 'الرجاء إخال بريدك الألكتروني لاستلام رمز التحقق',
             textColor: AppColors.secondDark,
           ),
           0.07.sh.ph,
@@ -50,7 +50,7 @@ class ResetPasswordView extends GetView<ResetPasswordController> {
           ),
           0.07.sh.ph,
           CustomButton(
-              text: 'Send',
+              text: 'إرسال',
               onPressed: () {
                 controller.fakeSending();
               }),

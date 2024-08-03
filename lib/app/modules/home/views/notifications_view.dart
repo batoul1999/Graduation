@@ -70,7 +70,7 @@ class NotificationsView extends GetView<NotificationsController> {
           children: [
             CustomText(
                 textType: TextStyleType.bodyBig,
-                text: "Notifications",
+                text: "الإشعارات",
                 textColor: AppColors.whiteColor),
             const Spacer(),
             Obx(() => IconButton(
@@ -111,7 +111,7 @@ class NotificationsView extends GetView<NotificationsController> {
                 0.05.sw.pw,
                 CustomText(
                   textType: TextStyleType.bodyBig,
-                  text: 'delete',
+                  text: 'حذف',
                   textColor: AppColors.whiteColor,
                 )
               ],
@@ -160,10 +160,10 @@ class NotificationsView extends GetView<NotificationsController> {
                   0.02.sh.ph,
                   CustomText(
                       textType: TextStyleType.body,
-                      text: notification.name ?? 'missing name'),
+                      text: notification.name ?? 'لا يوجد اسم'),
                   0.005.sh.ph,
                   Text(
-                    notification.description ?? 'missing data',
+                    notification.description ?? 'لا يوجد وصف',
                     style: TextStyle(
                         fontSize: 12.sp,
                         overflow: TextOverflow.fade,
@@ -172,7 +172,7 @@ class NotificationsView extends GetView<NotificationsController> {
                   const Spacer(),
                   CustomText(
                       textType: TextStyleType.small,
-                      text: notification.issuedDate ?? 'no date')
+                      text: notification.issuedDate ?? 'لا يوجد بيانات')
                 ],
               ),
             )

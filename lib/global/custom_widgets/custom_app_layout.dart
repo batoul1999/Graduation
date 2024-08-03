@@ -8,11 +8,13 @@ class CustomAppLayout extends StatelessWidget {
   Widget? backWardWidget;
   Widget? forWardWidget;
   Widget? mainIcon;
+  double? height;
   Color? color;
   CustomAppLayout(
       {super.key,
       this.backWardWidget,
       this.forWardWidget,
+      this.height,
       this.mainIcon,
       this.color});
 
@@ -43,7 +45,7 @@ class CustomAppLayout extends StatelessWidget {
           alignment: Alignment.bottomCenter,
           child: Container(
             width: Get.width,
-            height: 400.h,
+            height: height ?? 400.h,
             decoration: BoxDecoration(
               gradient: LinearGradient(
                   begin: Alignment.topCenter,
