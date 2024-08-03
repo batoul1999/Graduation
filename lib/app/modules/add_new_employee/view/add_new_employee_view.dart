@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:graduation/app/core/utils/general_utils.dart';
-import 'package:graduation/app/modules/auth/add_new_employee/controller/add_new_employee_controller.dart';
+import 'package:graduation/app/modules/add_new_employee/controller/add_new_employee_controller.dart';
 import 'package:graduation/global/custom_widgets/custom_app_layout.dart';
 import 'package:graduation/global/custom_widgets/custom_button.dart';
 import 'package:graduation/global/custom_widgets/custom_text_form.dart';
