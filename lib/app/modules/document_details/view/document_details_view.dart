@@ -8,6 +8,7 @@ import 'package:graduation/app/core/enums/file_type_enum.dart';
 import 'package:graduation/app/core/utils/general_utils.dart';
 import 'package:graduation/app/modules/document_details/controller/document_details_controller.dart';
 import 'package:graduation/global/custom_widgets/custom_button.dart';
+import 'package:graduation/global/custom_widgets/custom_gradient_container.dart';
 import 'package:graduation/global/custom_widgets/custom_text.dart';
 import 'package:graduation/global/custom_widgets/custom_text_form.dart';
 import 'package:graduation/global/shared/app_colors.dart';
@@ -23,17 +24,7 @@ class DocumentDetailsView extends GetView<DocumentDetailsController> {
       child: Scaffold(
         body: Stack(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      AppColors.gradientBlue.withOpacity(0.5),
-                      AppColors.gradientBlue.withOpacity(1),
-                      AppColors.whiteColor
-                    ]),
-              ),
+            CustomGradientContainer(
               child: Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: 0.03.sw, vertical: 0.02.sh),

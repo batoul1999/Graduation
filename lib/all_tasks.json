@@ -1,0 +1,112 @@
+{
+  "departments": [
+    {
+      "id": 1,
+      "name": "الديوان",
+      "description": "هذا القسم مسؤول عن جدولة وتأريخ الطلبات المتقدمة الى الكلية",
+      "pending_tasks_count": 10,
+      "finished_tasks_count": 6,
+      "rejected_tasks_count": 3,
+      "employess": [
+        {
+          "name": "علي حاتم",
+          "id": 1
+        },
+        {
+          "name": "محمد احمد",
+          "id": 2
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "الامتحانات",
+      "description": "هذا القسم مسؤول عن إدارة جميع الامتحانات في الكلية",
+      "pending_tasks_count": 5,
+      "finished_tasks_count": 12,
+      "rejected_tasks_count": 1,
+      "employess": [
+        {
+          "name": "سارة علي",
+          "id": 3
+        },
+        {
+          "name": "احمد خالد",
+          "id": 4
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "الشؤون",
+      "description": "هذا القسم مسؤول عن جميع الأمور الإدارية للطلبة",
+      "pending_tasks_count": 8,
+      "finished_tasks_count": 9,
+      "rejected_tasks_count": 2,
+      "employess": [
+        {
+          "name": "محمد احمد",
+          "id": 2
+        },
+        {
+          "name": "علي حاتم",
+          "id": 1
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "مكتب العمادة",
+      "description": "هذا القسم مسؤول عن جميع الأمور الأكاديمية للكلية",
+      "pending_tasks_count": 3,
+      "finished_tasks_count": 7,
+      "rejected_tasks_count": 0,
+      "employess": [
+        {
+          "name": "سارة علي",
+          "id": 3
+        },
+        {
+          "name": "احمد خالد",
+          "id": 4
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "الامن",
+      "description": "هذا القسم مسؤول عن أمن الكلية",
+      "pending_tasks_count": 1,
+      "finished_tasks_count": 3,
+      "rejected_tasks_count": 0,
+      "employess": [
+        {
+          "name": "علي حاتم",
+          "id": 1
+        },
+        {
+          "name": "محمد احمد",
+          "id": 2
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "مكتب العلاقات العامة",
+      "description": "هذا القسم مسؤول عن العلاقات العامة للكلية",
+      "pending_tasks_count": 0,
+      "finished_tasks_count": 2,
+      "rejected_tasks_count": 0,
+      "employess": [
+        {
+          "name": "سارة علي",
+          "id": 3
+        },
+        {
+          "name": "احمد خالد",
+          "id": 4
+        }
+      ]
+    }
+  ]
+}

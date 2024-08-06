@@ -88,13 +88,13 @@ class CustomText extends StatelessWidget {
 
       case TextStyleType.bodyBig:
         return TextStyle(
-          backgroundColor: selectionColor,
-          height: heightText ?? 1.h,
-          decoration: textDecoration,
-          color: textColor,
-          fontSize: 18.sp,
-          fontWeight: fontWeight ?? FontWeight.w400,
-        );
+            backgroundColor: selectionColor,
+            height: heightText ?? 1.h,
+            decoration: textDecoration,
+            color: textColor,
+            fontSize: fontSize ?? 18.sp,
+            fontWeight: fontWeight ?? FontWeight.w400,
+            overflow: overflow ?? TextOverflow.ellipsis);
 
       case TextStyleType.body:
         return TextStyle(
@@ -112,7 +112,7 @@ class CustomText extends StatelessWidget {
           height: heightText ?? 1.2.h,
           decoration: textDecoration,
           color: textColor,
-          fontSize: 14.sp,
+          fontSize: fontSize ?? 14.sp,
           fontWeight: fontWeight ?? FontWeight.w200,
         );
 

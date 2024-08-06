@@ -12,6 +12,8 @@ abstract class Routes {
   static const VERIFI = _Paths.VERIFI;
   static const RESETPASSWORD = _Paths.RESETPASSWORD;
   static const DOCUMENTDETAILS = _Paths.DOCUMENTDETAILS;
+  static const DOCUMENTSTATUS = _Paths.DOCUMENTSTATUS;
+  static const AllTASKS = _Paths.AllTASKS;
 }
 
 abstract class _Paths {
@@ -23,4 +25,6 @@ abstract class _Paths {
   static const VERIFI = '/verification';
   static const RESETPASSWORD = '/reset_password';
   static const DOCUMENTDETAILS = '/document_details';
+  static const DOCUMENTSTATUS = '/document_status';
+  static const AllTASKS = '/all_tasks';
 }

@@ -172,7 +172,10 @@ class ProfileView extends GetView<ProfileController> {
                         text: 'إضافة قسم جديد'),
                     0.01.sh.ph,
                     customContainer(
-                        function: () {}, text: 'استعراض حالة الطلب'),
+                        function: () {
+                          Get.toNamed(Routes.AllTASKS);
+                        },
+                        text: 'استعراض حالة الطلب'),
                   ],
                 ),
               ),

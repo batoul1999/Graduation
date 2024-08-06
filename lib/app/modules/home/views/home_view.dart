@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:graduation/app/core/utils/general_utils.dart';
+import 'package:graduation/app/modules/auth/login/view/login_view.dart';
 import 'package:graduation/app/modules/home/views/arabic_editor_view.dart';
 import 'package:graduation/app/modules/home/views/documents_view.dart';
 import 'package:graduation/app/modules/home/views/notifications_view.dart';
@@ -36,7 +37,7 @@ class HomeView extends GetView<HomeController> {
             borderRadius: BorderRadius.circular(15.r),
           ),
           child: ListView.builder(
-            itemCount: 4,
+            itemCount: 5,
             scrollDirection: Axis.horizontal,
             padding: EdgeInsets.symmetric(horizontal: 1.sw * .024),
             itemBuilder: (context, index) => InkWell(
@@ -64,8 +65,8 @@ class HomeView extends GetView<HomeController> {
                           bottom: index == controller.currentIndex.value
                               ? 0
                               : 1.sw * .029,
-                          right: 1.sw * .0422,
-                          left: 1.sw * .0422,
+                          right: 1.sw * .0232,
+                          left: 1.sw * .0232,
                         ),
                         width: 1.sw * .128,
                         height: index == controller.currentIndex.value
@@ -102,6 +103,7 @@ class HomeView extends GetView<HomeController> {
             children: [
               DocumentsView(),
               ArabicEditorView(),
+              LoginView(),
               NotificationsView(),
               ProfileView()
             ],
@@ -114,6 +116,7 @@ class HomeView extends GetView<HomeController> {
   List<IconData> listOfIcons = [
     Icons.task,
     Icons.add_box,
+    Icons.home,
     Icons.notifications_active,
     Icons.person_rounded,
   ];

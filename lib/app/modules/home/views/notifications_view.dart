@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:graduation/app/core/data/models/apis/get_all_docs_model/get_all_docs_model.dart';
 import 'package:graduation/app/core/utils/general_utils.dart';
 import 'package:graduation/app/modules/home/controllers/notifications_controller.dart';
+import 'package:graduation/global/custom_widgets/custom_app_bar.dart';
 import 'package:graduation/global/custom_widgets/custom_text.dart';
 import 'package:graduation/global/shared/app_colors.dart';
 import 'package:shimmer/shimmer.dart';
@@ -49,44 +50,16 @@ class NotificationsView extends GetView<NotificationsController> {
                           textType: TextStyleType.body,
                           text: controller.errorMessage.value),
                 )),
-          titeBar(),
+          CustomAppBar(
+            text: "الإشعارات",
+            onPressed: () {
+              controller.documentsList.isEmpty
+                  ? controller.getAllNotifications()
+                  : controller.documentsList.clear();
+            },
+            isBool: controller.documentsList.isEmpty.obs,
+          )
         ],
-      ),
-    );
-  }
-
-  Widget titeBar() {
-    return Container(
-      height: 0.08.sh,
-      width: 1.sw,
-      padding: EdgeInsets.symmetric(horizontal: 0.03.sw),
-      margin: EdgeInsets.symmetric(vertical: 0.04.sh, horizontal: 0.01.sw),
-      decoration: BoxDecoration(
-          border: Border.all(color: AppColors.whiteColor, width: 2),
-          borderRadius: BorderRadius.circular(15.r),
-          color: AppColors.secondDark),
-      child: Center(
-        child: Row(
-          children: [
-            CustomText(
-                textType: TextStyleType.bodyBig,
-                text: "الإشعارات",
-                textColor: AppColors.whiteColor),
-            const Spacer(),
-            Obx(() => IconButton(
-                onPressed: () {
-                  controller.documentsList.isEmpty
-                      ? controller.getAllNotifications()
-                      : controller.documentsList.clear();
-                },
-                icon: Icon(
-                  controller.documentsList.isEmpty
-                      ? Icons.refresh
-                      : Icons.delete_forever,
-                  color: AppColors.whiteColor,
-                )))
-          ],
-        ),
       ),
     );
   }

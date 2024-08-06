@@ -1,1 +1,7 @@
-enum OperationType { none, getAllNotifications, getAllDocuments }
+enum OperationType {
+  none,
+  getAllNotifications,
+  getAllDocuments,
+  getAllTasks,
+  getAllDepartments
+}
