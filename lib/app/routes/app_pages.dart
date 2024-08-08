@@ -15,11 +15,13 @@ import 'package:graduation/app/modules/document_details/bindings/document_detail
 import 'package:graduation/app/modules/document_details/view/document_details_view.dart';
 import 'package:graduation/app/modules/document_status/document_status_binding.dart';
 import 'package:graduation/app/modules/document_status/document_status_view.dart';
+import 'package:graduation/app/modules/main_views/bindings/main_view_binding.dart';
+import 'package:graduation/app/modules/main_views/views/main_view.dart';
 
 import '../modules/auth/login/binding/login_binding.dart';
 import '../modules/auth/login/view/login_view.dart';
-import '../modules/home/bindings/home_binding.dart';
-import '../modules/home/views/home_view.dart';
+import '../modules/main_views/bindings/home_binding.dart';
+import '../modules/main_views/views/home_view.dart';
 
 part 'app_routes.dart';
 
@@ -74,5 +76,10 @@ class AppPages {
       page: () => AllTasksView(),
       binding: AllTasksBinding(),
     ),
+    GetPage(
+      name: _Paths.MAINVIEW,
+      page: () => MainView(),
+      binding: MainViewBinding(),
+    )
   ];
 }

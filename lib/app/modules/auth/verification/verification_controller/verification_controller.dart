@@ -24,7 +24,7 @@ class VerificationController extends BaseController {
   void fakeVerify() {
     runFullLoadingFutureFunction(
         function: Future.delayed(const Duration(seconds: 3))
-            .then((value) => Get.toNamed(Routes.HOME)));
+            .then((value) => Get.toNamed(Routes.MAINVIEW)));
   }
 
   void onRecieveCode() {

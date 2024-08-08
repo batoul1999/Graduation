@@ -6,7 +6,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:graduation/app/core/data/models/apis/get_all_docs_model/get_all_docs_model.dart';
 import 'package:graduation/app/core/utils/general_utils.dart';
-import 'package:graduation/app/modules/home/controllers/notifications_controller.dart';
+import 'package:graduation/app/modules/main_views/controllers/notifications_controller.dart';
 import 'package:graduation/global/custom_widgets/custom_app_bar.dart';
 import 'package:graduation/global/custom_widgets/custom_text.dart';
 import 'package:graduation/global/shared/app_colors.dart';
@@ -109,7 +109,7 @@ class NotificationsView extends GetView<NotificationsController> {
                     shape: BoxShape.circle,
                     color: AppColors.whiteColor,
                     border: Border.all(color: AppColors.mainBlue, width: 1)),
-                child: notification.imageUrl == null
+                child: notification.name == null
                     ? Icon(
                         Icons.person,
                         color: AppColors.mainBlue,
@@ -117,7 +117,7 @@ class NotificationsView extends GetView<NotificationsController> {
                       )
                     : ClipOval(
                         child: Image.file(
-                        File(notification.imageUrl!),
+                        File(notification.name!),
                         fit: BoxFit.cover,
                       )),
               ),
@@ -136,7 +136,7 @@ class NotificationsView extends GetView<NotificationsController> {
                       text: notification.name ?? 'لا يوجد اسم'),
                   0.005.sh.ph,
                   Text(
-                    notification.description ?? 'لا يوجد وصف',
+                    notification.body ?? 'لا يوجد وصف',
                     style: TextStyle(
                         fontSize: 12.sp,
                         overflow: TextOverflow.fade,
@@ -145,7 +145,7 @@ class NotificationsView extends GetView<NotificationsController> {
                   const Spacer(),
                   CustomText(
                       textType: TextStyleType.small,
-                      text: notification.issuedDate ?? 'لا يوجد بيانات')
+                      text: notification.body ?? 'لا يوجد بيانات')
                 ],
               ),
             )

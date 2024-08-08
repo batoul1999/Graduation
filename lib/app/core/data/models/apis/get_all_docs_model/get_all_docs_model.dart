@@ -24,44 +24,50 @@ class GetAllDocsModel {
 class Documents {
   int? id;
   String? name;
-  String? description;
-  String? type;
-  String? issuedBy;
-  String? issuedDate;
-  String? imageUrl;
-  String? date;
+  String? body;
+  List<Department>? departments;
+  Department? initDepartment;
 
-  Documents(
-      {this.id,
-      this.name,
-      this.description,
-      this.type,
-      this.issuedBy,
-      this.date,
-      this.imageUrl,
-      this.issuedDate});
+  Documents({this.id, this.name, this.departments, this.initDepartment});
 
   Documents.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
-    description = json['description'];
-    type = json['type'];
-    issuedBy = json['issuedBy'];
-    imageUrl = json['image_url'];
-    imageUrl = json['date'];
-    issuedDate = json['issuedDate'];
+    body = json['body'];
+    if (json['departments'] != null) {
+      departments = <Department>[];
+      json['departments'].forEach((v) {
+        departments!.add(Department.fromJson(v));
+      });
+    }
+    initDepartment = Department.fromJson(json['init_department']);
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['name'] = name;
-    data['description'] = description;
-    data['image_url'] = imageUrl;
-    data['date'] = data;
-    data['type'] = type;
-    data['issuedBy'] = issuedBy;
-    data['issuedDate'] = issuedDate;
+    data['body'] = body;
+    if (departments != null) {
+      data['departments'] = departments!.map((v) => v.toJson()).toList();
+    }
+    data['init_department'] = initDepartment;
+    return data;
+  }
+}
+
+class Department {
+  int? id;
+  String? name;
+  Department({this.id, this.name});
+  Department.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+  }
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
     return data;
   }
 }

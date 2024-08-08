@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:graduation/app/core/enums/file_type_enum.dart';
 import 'package:graduation/app/core/utils/general_utils.dart';
-import 'package:graduation/app/modules/home/controllers/profile_controller.dart';
+import 'package:graduation/app/modules/main_views/controllers/profile_controller.dart';
 import 'package:graduation/app/routes/app_pages.dart';
 import 'package:graduation/global/custom_widgets/custom_app_layout.dart';
 import 'package:graduation/global/custom_widgets/custom_button.dart';

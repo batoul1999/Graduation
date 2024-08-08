@@ -2,20 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:graduation/app/core/utils/general_utils.dart';
-import 'package:graduation/app/modules/auth/login/view/login_view.dart';
-import 'package:graduation/app/modules/home/views/arabic_editor_view.dart';
-import 'package:graduation/app/modules/home/views/documents_view.dart';
-import 'package:graduation/app/modules/home/views/notifications_view.dart';
-import 'package:graduation/app/modules/home/views/profile_view.dart';
+import 'package:graduation/app/modules/main_views/controllers/main_view_controller.dart';
+import 'package:graduation/app/modules/main_views/views/arabic_editor_view.dart';
+import 'package:graduation/app/modules/main_views/views/documents_view.dart';
+import 'package:graduation/app/modules/main_views/views/home_view.dart';
+import 'package:graduation/app/modules/main_views/views/notifications_view.dart';
+import 'package:graduation/app/modules/main_views/views/profile_view.dart';
 import 'package:graduation/global/shared/app_colors.dart';
 
-import '../controllers/home_controller.dart';
-
 // ignore: must_be_immutable
-class HomeView extends GetView<HomeController> {
-  HomeView({super.key});
+class MainView extends GetView<MainViewController> {
+  MainView({super.key});
   @override
-  HomeController controller = Get.put(HomeController());
+  MainViewController controller = Get.put(MainViewController());
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -103,7 +102,7 @@ class HomeView extends GetView<HomeController> {
             children: [
               DocumentsView(),
               ArabicEditorView(),
-              LoginView(),
+              HomeView(),
               NotificationsView(),
               ProfileView()
             ],
