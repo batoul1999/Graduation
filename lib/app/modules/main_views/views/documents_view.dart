@@ -61,8 +61,8 @@ class DocumentsView extends GetView<DocumentsController> {
                               primary: true,
                               padding: EdgeInsets.all(0.01.sw),
                               crossAxisCount: 2,
-                              childAspectRatio: 1.5.w,
-                              mainAxisSpacing: 0.05.sw,
+                              childAspectRatio: 1.1.h,
+                              mainAxisSpacing: 0.03.sw,
                               crossAxisSpacing: 5.w,
                               children: List.generate(
                                 controller.filteredList.isNotEmpty

@@ -3,5 +3,5 @@ enum OperationType {
   getAllNotifications,
   getAllDocuments,
   getAllTasks,
-  getAllDepartments
+  getAllDepartments,
 }

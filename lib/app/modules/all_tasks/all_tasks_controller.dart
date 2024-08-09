@@ -45,7 +45,7 @@ class AllTasksController extends BaseController {
     success.value = true;
   }
 
-  RxList<Departments> departmentsList = <Departments>[].obs;
+  RxList<AllDepartments> departmentsList = <AllDepartments>[].obs;
   void getAllDepartments() {
     departmentsList.clear();
     departmentsList.addAll(
