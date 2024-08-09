@@ -25,22 +25,32 @@ class Documents {
   int? id;
   String? name;
   String? body;
-  List<Department>? departments;
-  Department? initDepartment;
+  List<Departments>? departments;
+  Departments? initDepartment;
+  List<String>? data;
 
-  Documents({this.id, this.name, this.departments, this.initDepartment});
+  Documents(
+      {this.id,
+      this.name,
+      this.body,
+      this.departments,
+      this.initDepartment,
+      this.data});
 
   Documents.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     body = json['body'];
     if (json['departments'] != null) {
-      departments = <Department>[];
+      departments = <Departments>[];
       json['departments'].forEach((v) {
-        departments!.add(Department.fromJson(v));
+        departments!.add(Departments.fromJson(v));
       });
     }
-    initDepartment = Department.fromJson(json['init_department']);
+    initDepartment = json['init_department'] != null
+        ? Departments.fromJson(json['init_department'])
+        : null;
+    data = json['data'].cast<String>();
   }
 
   Map<String, dynamic> toJson() {
@@ -51,19 +61,25 @@ class Documents {
     if (departments != null) {
       data['departments'] = departments!.map((v) => v.toJson()).toList();
     }
-    data['init_department'] = initDepartment;
+    if (initDepartment != null) {
+      data['init_department'] = initDepartment!.toJson();
+    }
+    data['data'] = this.data;
     return data;
   }
 }
 
-class Department {
+class Departments {
   int? id;
   String? name;
-  Department({this.id, this.name});
-  Department.fromJson(Map<String, dynamic> json) {
+
+  Departments({this.id, this.name});
+
+  Departments.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
   }
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;

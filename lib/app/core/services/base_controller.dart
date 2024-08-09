@@ -7,6 +7,7 @@ import 'package:graduation/app/core/enums/file_type_enum.dart';
 import 'package:graduation/app/core/enums/operation_type.dart';
 import 'package:graduation/app/core/enums/request_status.dart';
 import 'package:graduation/app/core/utils/general_utils.dart';
+import 'package:graduation/global/shared/maps_data.dart';
 import 'package:image_picker/image_picker.dart';
 
 class BaseController extends GetxController {
@@ -88,99 +89,9 @@ class BaseController extends GetxController {
 
   void getAllDocuments() {
     documentsList.clear();
-    documentsList.addAll(GetAllDocsModel.fromJson(docsMap).documents!);
+    documentsList.addAll(GetAllDocsModel.fromJson(MapsData.docsMap).documents!);
     success.value = true;
   }
-
-  Map<String, dynamic> docsMap = {
-    "documents": [
-      {
-        "id": 1,
-        "name": "مصدقة تخرج",
-        "body":
-            "أرجو الموافقة على منحي مصدقة التخرج وعلما أني تخرجت نتيجة امتحانات الدورة الفصلية من العام الجامعي:",
-        "departments": [
-          {"id": 1, "name": "شعبة شؤون الطلاب"},
-          {"id": 2, "name": "مكتب العميد"}
-        ],
-        'init_department': {"id": 6, "name": "الديوان"},
-      },
-      {
-        "id": 2,
-        "name": "براءة ذمة",
-        "body":
-            "يعتبر الطالب بريءالذمة تجاه لدوائر التالية : 1_المدينة الامعية 2_الفرقة الحزبية المعلوماتية 3_مكتبة كلية الهندسة المعلوماتية 4_شعبة شؤون الطلاب",
-        "departments": [
-          {"id": 1, "name": "شعبة شؤون الطلاب"},
-          {"id": 2, "name": "مكتب العميد"},
-          {"id": 3, "name": "المدينة الجامعية"},
-          {"id": 4, "name": "الفرقة الحزبية المعلوماتية"},
-          {"id": 5, "name": "مكتبة كلية الهندسة المعلوماتية"},
-        ],
-        'init_department': {"id": 6, "name": "الديوان"},
-      },
-      {
-        "id": 3,
-        "name": "طلب عام",
-        "body": "أرجو الموافقة على",
-        "departments": [
-          {"id": 2, "name": "مكتب العميد"},
-        ],
-        'init_department': {"id": 6, "name": "الديوان"},
-      },
-      {
-        "id": 4,
-        "name": "طلب اعتراض على جمع العلامات",
-        "body": "أرجو الموافقة على إعادة جمع علامات مقرر",
-        "departments": [
-          {"id": 2, "name": "مكتب العميد"},
-        ],
-        'init_department': {"id": 6, "name": "الديوان"},
-      },
-      {
-        "id": 5,
-        "name": "بيان وضع",
-        "body": "",
-        "departments": [
-          {"id": 2, "name": "مكتب العميد"},
-          {"id": 7, "name": "الامتحانات"},
-        ],
-        'init_department': {"id": 6, "name": "الديوان"},
-      },
-      {
-        "id": 6,
-        "name": "وثيقة ترفع",
-        "body":
-            "نجاح/ترفع الطالب من سنة الى السنة التالية وذلك بنتيجة امتحانات الدورة الفصلية وبناءعلى طلبه سمنح هذه الوثيقة",
-        "departments": [
-          {"id": 2, "name": "مكتب العميد"},
-          {"id": 7, "name": "الامتحانات"},
-        ],
-        'init_department': {"id": 6, "name": "الديوان"},
-      },
-      {
-        "id": 7,
-        "name": "إشعار التخرج",
-        "body":
-            "يتخرج الطالب من كلية الهندسة المعلوماتية من القسم المرفق بنتيجة امتحانات الدورة الفصلية المرفقة علما أن قرار التخرج لم يصدر بعد",
-        "departments": [
-          {"id": 2, "name": "مكتب العميد"},
-          {"id": 7, "name": "الامتحانات"},
-        ],
-        'init_department': {"id": 6, "name": "الديوان"},
-      },
-      {
-        "id": 8,
-        "name": "طلب إعادة العملي",
-        "body":
-            "السيد الدكتور عميد كلية الهندسة المعلوماتية ,أرجو الموافقة التفضل بالموافقة على إعادة العملي للمقرر المرفق ولكم جزيل الشكر",
-        "departments": [
-          {"id": 2, "name": "مكتب العميد"},
-        ],
-        'init_department': {"id": 6, "name": "الديوان"},
-      },
-    ]
-  };
 }
 
 class FileModel {
