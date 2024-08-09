@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:graduation/app/modules/home/controllers/arabic_editor_controller.dart';
+import 'package:graduation/app/modules/main_views/controllers/arabic_editor_controller.dart';
 import 'package:graduation/global/shared/app_colors.dart';
 
 // ignore: must_be_immutable

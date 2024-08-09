@@ -5,9 +5,8 @@ import 'package:get/get.dart';
 import 'package:graduation/app/core/data/models/apis/get_all_docs_model/get_all_docs_model.dart';
 import 'package:graduation/app/core/utils/general_utils.dart';
 import 'package:graduation/app/modules/document_details/controller/document_details_controller.dart';
-import 'package:graduation/app/modules/home/controllers/documents_controller.dart';
+import 'package:graduation/app/modules/main_views/controllers/documents_controller.dart';
 import 'package:graduation/app/routes/app_pages.dart';
-import 'package:graduation/global/custom_widgets/custom_text.dart';
 import 'package:graduation/global/custom_widgets/custom_text_form.dart';
 import 'package:graduation/global/shared/app_colors.dart';
 import 'package:shimmer/shimmer.dart';
@@ -62,8 +61,8 @@ class DocumentsView extends GetView<DocumentsController> {
                               primary: true,
                               padding: EdgeInsets.all(0.01.sw),
                               crossAxisCount: 2,
-                              childAspectRatio: 1.1.w,
-                              mainAxisSpacing: 0.01.sw,
+                              childAspectRatio: 1.5.w,
+                              mainAxisSpacing: 0.05.sw,
                               crossAxisSpacing: 5.w,
                               children: List.generate(
                                 controller.filteredList.isNotEmpty
@@ -94,7 +93,7 @@ class DocumentsView extends GetView<DocumentsController> {
                                         },
                                         child: Container(
                                           decoration: BoxDecoration(
-                                              color: AppColors.whiteColor,
+                                              color: AppColors.mainBlue,
                                               border: Border.all(
                                                   color: AppColors.blackColor),
                                               borderRadius:
@@ -103,30 +102,18 @@ class DocumentsView extends GetView<DocumentsController> {
                                             padding: EdgeInsets.symmetric(
                                                 horizontal: 10.w,
                                                 vertical: 3.h),
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                CustomText(
-                                                    textType:
-                                                        TextStyleType.small,
-                                                    text: document.name!),
-                                                0.01.sh.ph,
-                                                CustomText(
-                                                    textType:
-                                                        TextStyleType.small,
-                                                    text: document.type!),
-                                                0.01.sh.ph,
-                                                CustomText(
-                                                    textType:
-                                                        TextStyleType.small,
-                                                    text: document.issuedBy!),
-                                                0.01.sh.ph,
-                                                CustomText(
-                                                  textType: TextStyleType.small,
-                                                  text: document.issuedDate!,
+                                            child: Center(
+                                              child: Text(
+                                                document.name!,
+                                                style: TextStyle(
+                                                  // Replace with your custom style
+                                                  fontSize: 18.sp,
+                                                  color: AppColors.whiteColor,
+                                                  fontWeight: FontWeight
+                                                      .w600, // Example style
                                                 ),
-                                              ],
+                                                overflow: TextOverflow.fade,
+                                              ),
                                             ),
                                           ),
                                         ),

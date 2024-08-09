@@ -24,44 +24,66 @@ class GetAllDocsModel {
 class Documents {
   int? id;
   String? name;
-  String? description;
-  String? type;
-  String? issuedBy;
-  String? issuedDate;
-  String? imageUrl;
-  String? date;
+  String? body;
+  List<Departments>? departments;
+  Departments? initDepartment;
+  List<String>? data;
 
   Documents(
       {this.id,
       this.name,
-      this.description,
-      this.type,
-      this.issuedBy,
-      this.date,
-      this.imageUrl,
-      this.issuedDate});
+      this.body,
+      this.departments,
+      this.initDepartment,
+      this.data});
 
   Documents.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
-    description = json['description'];
-    type = json['type'];
-    issuedBy = json['issuedBy'];
-    imageUrl = json['image_url'];
-    imageUrl = json['date'];
-    issuedDate = json['issuedDate'];
+    body = json['body'];
+    if (json['departments'] != null) {
+      departments = <Departments>[];
+      json['departments'].forEach((v) {
+        departments!.add(Departments.fromJson(v));
+      });
+    }
+    initDepartment = json['init_department'] != null
+        ? Departments.fromJson(json['init_department'])
+        : null;
+    data = json['data'].cast<String>();
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['name'] = name;
-    data['description'] = description;
-    data['image_url'] = imageUrl;
-    data['date'] = data;
-    data['type'] = type;
-    data['issuedBy'] = issuedBy;
-    data['issuedDate'] = issuedDate;
+    data['body'] = body;
+    if (departments != null) {
+      data['departments'] = departments!.map((v) => v.toJson()).toList();
+    }
+    if (initDepartment != null) {
+      data['init_department'] = initDepartment!.toJson();
+    }
+    data['data'] = this.data;
+    return data;
+  }
+}
+
+class Departments {
+  int? id;
+  String? name;
+
+  Departments({this.id, this.name});
+
+  Departments.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
     return data;
   }
 }

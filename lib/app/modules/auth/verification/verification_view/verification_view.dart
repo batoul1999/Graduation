@@ -67,7 +67,7 @@ class VerificationView extends GetView<VerificationController> {
       errorAnimationController: controller.errorAnimationController,
       controller: controller.pinController,
       onCompleted: (v) {
-        Get.toNamed(Routes.HOME);
+        Get.toNamed(Routes.MAINVIEW);
       },
       onChanged: (value) {},
       beforeTextPaste: (text) {

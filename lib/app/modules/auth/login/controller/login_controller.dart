@@ -25,7 +25,7 @@ class LoginController extends BaseController {
         prefStorage.setTokenInfo(value.$2!.token!);
         prefStorage.setLoginModel(value.$2!);
         prefStorage.setFirstLogin(true);
-        Get.toNamed(Routes.HOME);
+        Get.toNamed(Routes.MAINVIEW);
       }
     }));
   }
@@ -33,6 +33,6 @@ class LoginController extends BaseController {
   void fakeLogin() {
     runFullLoadingFutureFunction(
         function: Future.delayed(const Duration(seconds: 3))
-            .then((value) => Get.offAllNamed(Routes.HOME)));
+            .then((value) => Get.offAllNamed(Routes.MAINVIEW)));
   }
 }

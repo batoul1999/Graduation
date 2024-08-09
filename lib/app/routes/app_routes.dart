@@ -14,6 +14,7 @@ abstract class Routes {
   static const DOCUMENTDETAILS = _Paths.DOCUMENTDETAILS;
   static const DOCUMENTSTATUS = _Paths.DOCUMENTSTATUS;
   static const AllTASKS = _Paths.AllTASKS;
+  static const MAINVIEW = _Paths.MAINVIEW;
   static const ALLDEPARTMENTS = _Paths.ALLDEPARTMENTS;
 }
 
@@ -28,5 +29,6 @@ abstract class _Paths {
   static const DOCUMENTDETAILS = '/document_details';
   static const DOCUMENTSTATUS = '/document_status';
   static const AllTASKS = '/all_tasks';
+  static const MAINVIEW = '/main_view';
   static const ALLDEPARTMENTS = '/all_department';
 }

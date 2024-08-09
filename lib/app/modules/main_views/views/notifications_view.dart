@@ -109,7 +109,7 @@ class NotificationsView extends GetView<NotificationsController> {
                     shape: BoxShape.circle,
                     color: AppColors.whiteColor,
                     border: Border.all(color: AppColors.mainBlue, width: 1)),
-                child: notification.body == null
+                child: notification.name == null
                     ? Icon(
                         Icons.person,
                         color: AppColors.mainBlue,
@@ -117,7 +117,7 @@ class NotificationsView extends GetView<NotificationsController> {
                       )
                     : ClipOval(
                         child: Image.file(
-                        File(notification.body!),
+                        File(notification.name!),
                         fit: BoxFit.cover,
                       )),
               ),
