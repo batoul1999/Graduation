@@ -8,6 +8,8 @@ import 'package:graduation/app/core/enums/file_type_enum.dart';
 import 'package:graduation/app/core/utils/general_utils.dart';
 import 'package:graduation/app/modules/document_details/controller/document_details_controller.dart';
 import 'package:graduation/global/custom_widgets/custom_button.dart';
+import 'package:graduation/global/custom_widgets/custom_date_picker.dart';
+import 'package:graduation/global/custom_widgets/custom_dropdown.dart';
 import 'package:graduation/global/custom_widgets/custom_gradient_container.dart';
 import 'package:graduation/global/custom_widgets/custom_text.dart';
 import 'package:graduation/global/custom_widgets/custom_text_form.dart';
@@ -22,6 +24,7 @@ class DocumentDetailsView extends GetView<DocumentDetailsController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Stack(
           children: [
             CustomGradientContainer(
@@ -68,20 +71,40 @@ class DocumentDetailsView extends GetView<DocumentDetailsController> {
                             children: [
                               detailsInfo(
                                   controller: controller.employeeController,
-                                  text: 'الموظف:'),
+                                  text: 'اسم الموظف'),
+                              SizedBox(
+                                width: 0.9.sw,
+                                height: 40 *
+                                    controller.document!.data!.length
+                                        .toDouble(),
+                                child: ListView.builder(
+                                    primary: false,
+                                    itemCount:
+                                        controller.document!.data!.length,
+                                    itemBuilder: (context, index) {
+                                      controller.controllersList =
+                                          List.generate(
+                                              controller.document!.data!.length,
+                                              (index) =>
+                                                  TextEditingController());
+                                      return detailsInfo(
+                                          controller:
+                                              controller.controllersList[index],
+                                          text: controller
+                                              .document!.data![index]);
+                                    }),
+                              ),
                               0.01.sh.ph,
-                              detailsInfo(
-                                  controller: controller.destinationController,
-                                  text: 'الوجهة:'),
+                              StaticCustomDrop(
+                                  textName: controller.departmentName,
+                                  selectedValue: controller.selectedDepartmen,
+                                  itemList: controller.itemsList),
                               0.01.sh.ph,
-                              detailsInfo(
-                                  controller: controller.studentController,
-                                  text: 'الطالب:'),
+                              CustomDatePicker(
+                                  controller: controller.dateController,
+                                  hintText: 'تاريخ الطلب',
+                                  pickFirst: true),
                               0.01.sh.ph,
-                              detailsInfo(
-                                  controller: controller.yearController,
-                                  text: 'السنة:'),
-                              0.03.sh.ph,
                               const CustomText(
                                   textType: TextStyleType.body,
                                   text: 'المرفقات:'),
@@ -152,15 +175,31 @@ class DocumentDetailsView extends GetView<DocumentDetailsController> {
                                                                           BoxDecoration(
                                                                               borderRadius: BorderRadius.circular(10.r)),
                                                                       child:
-                                                                          ClipRRect(
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(10.r),
-                                                                        child: Image
-                                                                            .file(
-                                                                          File(controller.imageList[index -
-                                                                              1]),
-                                                                          fit: BoxFit
-                                                                              .cover,
+                                                                          InkWell(
+                                                                        onTap:
+                                                                            () async {
+                                                                          await Get.defaultDialog(
+                                                                              title: 'الصورة رقم $index',
+                                                                              content: SizedBox(
+                                                                                width: 0.8.sw,
+                                                                                height: 0.5.sh,
+                                                                                child: Image.file(
+                                                                                  File(controller.imageList[index - 1]),
+                                                                                  fit: BoxFit.cover,
+                                                                                ),
+                                                                              ));
+                                                                        },
+                                                                        child:
+                                                                            ClipRRect(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(10.r),
+                                                                          child:
+                                                                              Image.file(
+                                                                            File(controller.imageList[index -
+                                                                                1]),
+                                                                            fit:
+                                                                                BoxFit.cover,
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                     ),
@@ -250,11 +289,11 @@ class DocumentDetailsView extends GetView<DocumentDetailsController> {
   }) {
     return Row(
       children: [
-        CustomText(textType: TextStyleType.body, text: text),
+        CustomText(textType: TextStyleType.body, text: "$text :"),
         const Spacer(),
         CustomTextForm(
           fieldheight: 40,
-          fieldWidth: 260,
+          fieldWidth: 200,
           controller: controller,
           contentPadding:
               EdgeInsets.symmetric(vertical: 0.02.sw, horizontal: 0.02.sw),
