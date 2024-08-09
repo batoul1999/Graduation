@@ -5,6 +5,8 @@ import 'package:graduation/app/modules/add_new_employee/binding/add_new_employee
 import 'package:graduation/app/modules/add_new_employee/view/add_new_employee_view.dart';
 import 'package:graduation/app/modules/add_new_section/add_new_section_binding.dart';
 import 'package:graduation/app/modules/add_new_section/add_new_section_view.dart';
+import 'package:graduation/app/modules/all_departments/all_department_binding.dart';
+import 'package:graduation/app/modules/all_departments/all_departments_view.dart';
 import 'package:graduation/app/modules/all_tasks/all_tasks_binding.dart';
 import 'package:graduation/app/modules/all_tasks/all_tasks_view.dart';
 import 'package:graduation/app/modules/auth/reset_password/reset_password_binding/reset_password_binding.dart';
@@ -80,6 +82,11 @@ class AppPages {
       name: _Paths.MAINVIEW,
       page: () => MainView(),
       binding: MainViewBinding(),
-    )
+    ),
+    GetPage(
+      name: _Paths.ALLDEPARTMENTS,
+      page: () =>  AllDepartmintsView(),
+      binding: AllDwpartmentBinding(),
+    ),
   ];
 }
