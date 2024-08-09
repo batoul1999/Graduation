@@ -1,13 +1,13 @@
 class GetAllDepartmentsModel {
-  List<Departments>? departments;
+  List<AllDepartments>? departments;
 
   GetAllDepartmentsModel({this.departments});
 
   GetAllDepartmentsModel.fromJson(Map<String, dynamic> json) {
     if (json['departments'] != null) {
-      departments = <Departments>[];
+      departments = <AllDepartments>[];
       json['departments'].forEach((v) {
-        departments!.add(Departments.fromJson(v));
+        departments!.add(AllDepartments.fromJson(v));
       });
     }
   }
@@ -21,7 +21,7 @@ class GetAllDepartmentsModel {
   }
 }
 
-class Departments {
+class AllDepartments {
   int? id;
   String? name;
   String? description;
@@ -30,7 +30,7 @@ class Departments {
   int? rejectedTasksCount;
   List<Employess>? employess;
 
-  Departments(
+  AllDepartments(
       {this.id,
       this.name,
       this.description,
@@ -39,7 +39,7 @@ class Departments {
       this.rejectedTasksCount,
       this.employess});
 
-  Departments.fromJson(Map<String, dynamic> json) {
+  AllDepartments.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     description = json['description'];

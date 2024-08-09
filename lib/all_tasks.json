@@ -1,7 +1,7 @@
 {
   "departments": [
     {
-      "id": 1,
+      "id": 6,
       "name": "الديوان",
       "description": "هذا القسم مسؤول عن جدولة وتأريخ الطلبات المتقدمة الى الكلية",
       "pending_tasks_count": 10,
@@ -19,7 +19,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": 7,
       "name": "الامتحانات",
       "description": "هذا القسم مسؤول عن إدارة جميع الامتحانات في الكلية",
       "pending_tasks_count": 5,
@@ -37,8 +37,8 @@
       ]
     },
     {
-      "id": 3,
-      "name": "الشؤون",
+      "id": 1,
+      "name": "شعبة شؤون الطلاب",
       "description": "هذا القسم مسؤول عن جميع الأمور الإدارية للطلبة",
       "pending_tasks_count": 8,
       "finished_tasks_count": 9,
@@ -55,7 +55,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": 2,
       "name": "مكتب العمادة",
       "description": "هذا القسم مسؤول عن جميع الأمور الأكاديمية للكلية",
       "pending_tasks_count": 3,
@@ -73,9 +73,9 @@
       ]
     },
     {
-      "id": 5,
-      "name": "الامن",
-      "description": "هذا القسم مسؤول عن أمن الكلية",
+      "id": 3,
+      "name": "المدينة الجامعية",
+      "description": "هذا القسم مسؤول عن الأوراق والمستندات المتعلقة بكليات الجامعة",
       "pending_tasks_count": 1,
       "finished_tasks_count": 3,
       "rejected_tasks_count": 0,
@@ -91,9 +91,27 @@
       ]
     },
     {
-      "id": 6,
-      "name": "مكتب العلاقات العامة",
-      "description": "هذا القسم مسؤول عن العلاقات العامة للكلية",
+      "id": 4,
+      "name": "الفرقة الحزبية المعلوماتية",
+      "description": "هذا القسم مسؤول عن تنظيم الأنتماءات الحزبية للطلاب",
+      "pending_tasks_count": 0,
+      "finished_tasks_count": 2,
+      "rejected_tasks_count": 0,
+      "employess": [
+        {
+          "name": "سارة علي",
+          "id": 3
+        },
+        {
+          "name": "احمد خالد",
+          "id": 4
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "مكتبة كلية الهندسة المعلوماتية",
+      "description": "هذا القسم مسؤول عن تقديم المحاضرات الورقية والأوراق والطلبات للطلبة",
       "pending_tasks_count": 0,
       "finished_tasks_count": 2,
       "rejected_tasks_count": 0,
