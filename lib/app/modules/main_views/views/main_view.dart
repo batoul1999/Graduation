@@ -5,7 +5,6 @@ import 'package:graduation/app/core/utils/general_utils.dart';
 import 'package:graduation/app/modules/main_views/controllers/main_view_controller.dart';
 import 'package:graduation/app/modules/main_views/views/arabic_editor_view.dart';
 import 'package:graduation/app/modules/main_views/views/documents_view.dart';
-import 'package:graduation/app/modules/main_views/views/home_view.dart';
 import 'package:graduation/app/modules/main_views/views/notifications_view.dart';
 import 'package:graduation/app/modules/main_views/views/profile_view.dart';
 import 'package:graduation/global/shared/app_colors.dart';
@@ -36,9 +35,8 @@ class MainView extends GetView<MainViewController> {
             borderRadius: BorderRadius.circular(15.r),
           ),
           child: ListView.builder(
-            itemCount: 5,
+            itemCount: 4,
             scrollDirection: Axis.horizontal,
-            padding: EdgeInsets.symmetric(horizontal: 1.sw * .024),
             itemBuilder: (context, index) => InkWell(
               onTap: () {
                 controller.currentIndex.value = index;
@@ -47,7 +45,7 @@ class MainView extends GetView<MainViewController> {
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
               child: Obx(() => Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       0.001.sh.ph,
                       Icon(
@@ -64,8 +62,8 @@ class MainView extends GetView<MainViewController> {
                           bottom: index == controller.currentIndex.value
                               ? 0
                               : 1.sw * .029,
-                          right: 1.sw * .0232,
-                          left: 1.sw * .0232,
+                          right: 1.sw * .0470,
+                          left: 1.sw * .0470,
                         ),
                         width: 1.sw * .128,
                         height: index == controller.currentIndex.value
@@ -102,7 +100,6 @@ class MainView extends GetView<MainViewController> {
             children: [
               DocumentsView(),
               ArabicEditorView(),
-              HomeView(),
               NotificationsView(),
               ProfileView()
             ],
@@ -115,7 +112,6 @@ class MainView extends GetView<MainViewController> {
   List<IconData> listOfIcons = [
     Icons.task,
     Icons.add_box,
-    Icons.home,
     Icons.notifications_active,
     Icons.person_rounded,
   ];

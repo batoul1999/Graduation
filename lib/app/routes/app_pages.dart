@@ -19,11 +19,11 @@ import 'package:graduation/app/modules/document_status/document_status_binding.d
 import 'package:graduation/app/modules/document_status/document_status_view.dart';
 import 'package:graduation/app/modules/main_views/bindings/main_view_binding.dart';
 import 'package:graduation/app/modules/main_views/views/main_view.dart';
+import 'package:graduation/app/modules/splash_screen/splash_screen_binding.dart';
+import 'package:graduation/app/modules/splash_screen/splash_screen_view.dart';
 
 import '../modules/auth/login/binding/login_binding.dart';
 import '../modules/auth/login/view/login_view.dart';
-import '../modules/main_views/bindings/home_binding.dart';
-import '../modules/main_views/views/home_view.dart';
 
 part 'app_routes.dart';
 
@@ -33,10 +33,10 @@ class AppPages {
   static const INITIAL = Routes.LOGIN;
 
   static final routes = [
-    GetPage(
-      name: _Paths.HOME,
-      page: () => HomeView(),
-      binding: HomeBinding(),
+     GetPage(
+      name: _Paths.SPLASH,
+      page: () => const SplashScreenView(),
+      binding: SplashScreenBinding(),
     ),
     GetPage(
       name: _Paths.LOGIN,

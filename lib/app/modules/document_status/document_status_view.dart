@@ -21,19 +21,19 @@ class DocumentStatusView extends GetView<DocumentStatusController> {
         children: [
           CustomAppBar(
               text: "حالة الطلب", isBool: (controller.task != null).obs),
-          sectionDetails(text: "اسم الطلب: ${controller.task!.name!}"),
+          sectionDetails(text: "اسم الطلب: ${controller.task!.name}"),
           0.005.sh.ph,
-          sectionDetails(text: "الوصف: ${controller.task!.description!}"),
+          sectionDetails(text: "الوصف: ${controller.task!.description??'لا يوجد بيانات'}"),
           0.005.sh.ph,
-          sectionDetails(text: "التاريخ: ${controller.task!.issuedDate!}"),
+          sectionDetails(text: "التاريخ: ${controller.task!.issuedDate}"),
           0.005.sh.ph,
           sectionDetails(
-              text: "القسم الحالي: ${controller.task!.currentDepartment!}"),
+              text: "القسم الحالي: ${controller.task!.currentDepartment}"),
           0.005.sh.ph,
           sectionDetails(
               text: "الموظف الحالي: ${controller.task!.currentEmployee!}"),
           0.005.sh.ph,
-          sectionDetails(text: "حالة الطلب: ${controller.task!.status!}"),
+          sectionDetails(text: "حالة الطلب: ${controller.task!.status}"),
           0.015.sh.ph,
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 0.015.sw),

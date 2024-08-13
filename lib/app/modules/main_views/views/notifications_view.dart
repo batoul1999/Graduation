@@ -109,7 +109,7 @@ class NotificationsView extends GetView<NotificationsController> {
                     shape: BoxShape.circle,
                     color: AppColors.whiteColor,
                     border: Border.all(color: AppColors.mainBlue, width: 1)),
-                child: notification.name == null
+                child: notification.name != null
                     ? Icon(
                         Icons.person,
                         color: AppColors.mainBlue,
@@ -136,7 +136,7 @@ class NotificationsView extends GetView<NotificationsController> {
                       text: notification.name ?? 'لا يوجد اسم'),
                   0.005.sh.ph,
                   Text(
-                    notification.body ?? 'لا يوجد وصف',
+                    notification.body!.length>100?notification.body!.substring(0,100):notification.body ?? 'لا يوجد وصف',
                     style: TextStyle(
                         fontSize: 12.sp,
                         overflow: TextOverflow.fade,
@@ -145,7 +145,7 @@ class NotificationsView extends GetView<NotificationsController> {
                   const Spacer(),
                   CustomText(
                       textType: TextStyleType.small,
-                      text: notification.body ?? 'لا يوجد بيانات')
+                      text: notification.name ?? 'لا يوجد بيانات')
                 ],
               ),
             )

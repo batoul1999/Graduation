@@ -74,7 +74,7 @@ class DocumentDetailsView extends GetView<DocumentDetailsController> {
                                   text: 'اسم الموظف'),
                               SizedBox(
                                 width: 0.9.sw,
-                                height: 40 *
+                                height: 50 *
                                     controller.document!.data!.length
                                         .toDouble(),
                                 child: ListView.builder(

@@ -126,6 +126,7 @@ class ProfileView extends GetView<ProfileController> {
               child: Icon(
                 Icons.menu,
                 size: 0.08.sw,
+                color: AppColors.whiteColor,
               )),
         ),
         Obx(
@@ -237,7 +238,7 @@ class ProfileView extends GetView<ProfileController> {
 
   Future<void> clearOnPressedAction() async {
     await Get.defaultDialog(
-        title: 'are you sure to delete your photo',
+        title: 'هل أنت متأكد من حذف الصورة',
         titleStyle: TextStyle(color: AppColors.mainBlue, fontSize: 15.sp),
         content: SizedBox(
           width: 1.sw,
@@ -247,7 +248,7 @@ class ProfileView extends GetView<ProfileController> {
             child: Row(
               children: [
                 CustomButton(
-                  text: 'Cancel',
+                  text: 'الغاء',
                   textFontWeight: FontWeight.w600,
                   onPressed: () {
                     Get.back();
@@ -257,7 +258,7 @@ class ProfileView extends GetView<ProfileController> {
                 ),
                 0.02.sw.pw,
                 CustomButton(
-                  text: 'OK',
+                  text: 'تأكيد',
                   onPressed: () {
                     controller.profileImage.value = '';
                     Get.back();

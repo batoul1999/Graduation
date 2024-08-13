@@ -19,11 +19,6 @@ class ResetPasswordView extends GetView<ResetPasswordController> {
     return Scaffold(
         body: CustomAppLayout(
       forWardWidget: registerationWidget(),
-      mainIcon: Icon(
-        Icons.edit_document,
-        color: AppColors.whiteColor,
-        size: 0.3.sw,
-      ),
     ));
   }
 

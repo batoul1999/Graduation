@@ -9,6 +9,7 @@ import 'package:graduation/global/custom_widgets/custom_app_layout.dart';
 import 'package:graduation/global/custom_widgets/custom_button.dart';
 import 'package:graduation/global/custom_widgets/custom_text_form.dart';
 import 'package:graduation/global/shared/app_colors.dart';
+import 'package:lottie/lottie.dart';
 
 // ignore: must_be_immutable
 class AddNewSectionView extends GetView<AddNwSectionController> {
@@ -21,6 +22,7 @@ class AddNewSectionView extends GetView<AddNwSectionController> {
     return Scaffold(
         body: CustomAppLayout(
       forWardWidget: registerationWidget(),
+      mainIcon: Lottie.asset('assets/lottie/add_department.json'),
     ));
   }
 

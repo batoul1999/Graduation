@@ -20,7 +20,7 @@ class MainApp extends GetView<MainAppController> {
         locale: const Locale('ar'),
         navigatorObservers: [BotToastNavigatorObserver()],
         title: "Graduation",
-        initialRoute: Routes.LOGIN,
+        initialRoute: Routes.SPLASH,
         //  prefStorage.getFirstLogin() == false ? Routes.LOGIN : Routes.HOME,
         getPages: AppPages.routes,
         initialBinding: MainBindings(),

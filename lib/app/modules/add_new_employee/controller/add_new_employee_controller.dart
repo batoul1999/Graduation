@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:graduation/app/core/services/base_controller.dart';
-import 'package:graduation/app/routes/app_pages.dart';
+import 'package:graduation/global/custom_widgets/custom_toast.dart';
 
 class AddNewEmployeeController extends BaseController {
   final TextEditingController emailController = TextEditingController();
@@ -12,6 +11,6 @@ class AddNewEmployeeController extends BaseController {
   void fakeSignUp() {
     runFullLoadingFutureFunction(
         function: Future.delayed(const Duration(seconds: 3))
-            .then((value) => Get.offAllNamed(Routes.VERIFI)));
+            .then((value) => CustomToast.showMessage(message: 'تمت العملية بنجاح')));
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:graduation/global/shared/app_colors.dart';
+import 'package:lottie/lottie.dart';
 
 // ignore: must_be_immutable
 class CustomAppLayout extends StatelessWidget {
@@ -26,18 +27,13 @@ class CustomAppLayout extends StatelessWidget {
           width: Get.width,
           height: Get.height,
           decoration: BoxDecoration(
-              color: color ?? AppColors.secondDark.withOpacity(0.9)),
+              color: color ?? AppColors.secondDark.withOpacity(0.8)),
           child: Padding(
             padding: EdgeInsetsDirectional.only(bottom: 0.6.sh, top: 0.1.sh),
             child: SizedBox(
                 width: 0.02.sw,
                 height: 0.005.sh,
-                child: mainIcon ??
-                    Icon(
-                      Icons.edit_document,
-                      color: AppColors.whiteColor,
-                      size: 0.3.sw,
-                    )),
+                child: mainIcon?? Lottie.asset('assets/lottie/logo1.json')),
           ),
         ),
         backWardWidget ?? const SizedBox.shrink(),
