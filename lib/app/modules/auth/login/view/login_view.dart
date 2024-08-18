@@ -32,11 +32,11 @@ class LoginView extends GetView<LoginController> {
         children: [
           0.1.sh.ph,
           CustomTextForm(
-            controller: controller.emailController,
-            hint: 'البريد الالكتروني',
+            controller: controller.nameController,
+            hint: 'اسم المستخدم',
             validator: (value) => (value!.isEmpty) ? 'هذا الحقل مطلوب' : null,
             sufexIcon: Icon(Icons.email, color: AppColors.secondDark),
-            keyboardType: TextInputType.emailAddress,
+            keyboardType: TextInputType.name,
           ),
           0.015.sh.ph,
           CustomTextForm(
@@ -52,8 +52,8 @@ class LoginView extends GetView<LoginController> {
             text: 'تسجيل الدخول',
             onPressed: () {
               if (controller.formKey.currentState!.validate()) {
-                //controller.login();
-                controller.fakeLogin();
+                controller.login();
+               // controller.fakeLogin();
               }
             },
           ),

@@ -1,18 +1,23 @@
 import 'package:get/get.dart';
-import 'package:graduation/app/core/data/models/apis/get_all_departments_model/get_all_departments_model.dart';
-import 'package:graduation/app/core/data/models/apis/get_all_tasks_moel/get_all_tasks_model.dart';
+import 'package:graduation/app/core/data/models/apis/departments_models/get_all_departments_model.dart';
+import 'package:graduation/app/core/data/models/apis/task_models/get_all_tasks_model.dart';
+import 'package:graduation/app/core/data/models/apis/task_models/get_task_by_id.dart';
+import 'package:graduation/app/core/data/repositories/task_repository.dart';
+import 'package:graduation/app/core/enums/message_type.dart';
 import 'package:graduation/app/core/enums/operation_type.dart';
 import 'package:graduation/app/core/enums/request_status.dart';
 import 'package:graduation/app/core/services/base_controller.dart';
-import 'package:graduation/global/shared/maps_data.dart';
+import 'package:graduation/global/custom_widgets/custom_toast.dart';
 
 class AllTasksController extends BaseController {
   @override
   onInit() async {
-    await loadTasks();
-    await loadDepartments();
+    await getAllTasks();
+    await getAllDepartments();
     super.onInit();
   }
+
+  RxBool isFiltered =false.obs;
 
   bool get isTasksLoading =>
       requestStatus.value == RequestStatus.loading &&
@@ -22,40 +27,38 @@ class AllTasksController extends BaseController {
       requestStatus.value == RequestStatus.loading &&
       listType.contains(OperationType.getAllDepartments);
 
-  Future<void> loadTasks() async {
+  RxList<Task> filteredTasksList = <Task>[].obs;
+  RxList<Task> tasksList = <Task>[].obs;
+  void filterTasksByDepartment({required Departments department}) {
+    filteredTasksList.clear();
+    filteredTasksList
+        .addAll(tasksList.where((task) => task.id == department.id));
+  }
+
+  Future<void> getAllTasks() async {
     await runLoadingFutureFunction(
         type: OperationType.getAllTasks,
-        function: Future.delayed(const Duration(seconds: 3))
-            .then((value) => getAllTasks()));
+        function: TaskRepository().getAllTasks().then((value) {
+          if (value.$1 != null) {
+            CustomToast.showMessage(
+                message: value.$1!, messagetype: MessageType.rejected);
+          } else if (value.$2 != null) {
+            tasksList.clear();
+            tasksList.addAll(value.$2!.data!);
+          }
+        }));
   }
-
-  Future<void> loadDepartments() async {
-    await runLoadingFutureFunction(
-        type: OperationType.getAllDepartments,
-        function: Future.delayed(const Duration(seconds: 5))
-            .then((value) => getAllDepartments()));
-  }
-
-  RxList<Tasks> tasksList = <Tasks>[].obs;
-  RxList<Tasks> filteredTasksList = <Tasks>[].obs;
-  RxBool isFiltered = false.obs;
-  void getAllTasks() {
-    tasksList.clear();
-    tasksList.addAll(GetAllTasksModel.fromJson(MapsData.tasksMap).tasks!);
-    success.value = true;
-  }
-
-  RxList<AllDepartments> departmentsList = <AllDepartments>[].obs;
-  void getAllDepartments() {
-    departmentsList.clear();
-    departmentsList.addAll(
-        GetAllDepartmentsModel.fromJson(MapsData.departmentsMap).departments!);
-    success.value = true;
-  }
-
-  void filterTasksByDepartment({required String department}) {
-    filteredTasksList.clear();
-    filteredTasksList.addAll(
-        tasksList.where((task) => task.currentDepartment == department));
-  }
+   GetTaskByIdModel taskModel=GetTaskByIdModel();
+   Future<void> getDepartmentById({required int id}) async{
+    await runFullLoadingFutureFunction(
+      function: TaskRepository().getTaskById(id: id).then((value){
+       if(value.$1!=null){
+        CustomToast.showMessage(message: value.$1!,messagetype:MessageType.rejected);
+       }else if(value.$2!=null){
+       taskModel = value.$2!;
+       }
+      }
+    ));
+  
+}
 }

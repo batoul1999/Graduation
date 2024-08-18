@@ -13,6 +13,7 @@ class StaticCustomDrop extends StatelessWidget {
   final double? width;
   final double? textSize;
   final double? height;
+  final VoidCallback? onChanged;
   const StaticCustomDrop(
       {super.key,
       required this.textName,
@@ -22,7 +23,8 @@ class StaticCustomDrop extends StatelessWidget {
       this.height,
       this.textSize,
       this.copyList,
-      this.removeFromList});
+      this.removeFromList,
+      this.onChanged});
   @override
   Widget build(BuildContext context) {
     return Obx(() {
@@ -31,7 +33,7 @@ class StaticCustomDrop extends StatelessWidget {
         onMenuStateChange: (_) {},
         buttonStyleData: ButtonStyleData(
           height: height ?? 0.06.sh,
-          width: width ?? 0.25.sw,
+          width: width ?? 0.76.sw,
           padding: const EdgeInsetsDirectional.only(start: 14, end: 14),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.r),
@@ -78,7 +80,7 @@ class StaticCustomDrop extends StatelessWidget {
         isExpanded: true,
         onChanged: (String? y) {
           textName.value = y!;
-
+          onChanged!();
           for (var element in itemList) {
             if (element == y) {
               selectedValue.value = itemList.indexOf(element);

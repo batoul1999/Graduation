@@ -7,7 +7,7 @@ import 'package:graduation/app/core/utils/general_utils.dart';
 import 'package:graduation/app/routes/app_pages.dart';
 
 class LoginController extends BaseController {
-  final TextEditingController emailController = TextEditingController(text: '');
+  final TextEditingController emailController = TextEditingController(text: 'admin@gmail.com');
   GlobalKey<FormState> formKey = GlobalKey();
 
   void login() {
@@ -15,7 +15,7 @@ class LoginController extends BaseController {
     runFullLoadingFutureFunction(
         function: AuthRepository()
             .login(
-      email: emailController.text,
+      userName: nameController.text,
       password: passwordController.text,
     )
             .then((value) {

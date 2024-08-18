@@ -1,19 +1,21 @@
+import 'dart:async';
+
 import 'package:bot_toast/bot_toast.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:graduation/app/core/data/models/apis/get_all_docs_model/get_all_docs_model.dart';
+import 'package:graduation/app/core/data/models/apis/departments_models/get_all_departments_model.dart';
+import 'package:graduation/app/core/data/repositories/departments_repository.dart';
 import 'package:graduation/app/core/enums/file_type_enum.dart';
 import 'package:graduation/app/core/enums/operation_type.dart';
 import 'package:graduation/app/core/enums/request_status.dart';
 import 'package:graduation/app/core/utils/general_utils.dart';
-import 'package:graduation/global/shared/maps_data.dart';
 import 'package:image_picker/image_picker.dart';
 
 class BaseController extends GetxController {
-  final TextEditingController nameController = TextEditingController(text: '');
+  final TextEditingController nameController = TextEditingController(text: 'admin');
   final TextEditingController passwordController =
-      TextEditingController(text: '');
+      TextEditingController(text: 'Test@1234');
   RxBool success = false.obs;
   RxBool completed = false.obs;
 
@@ -21,7 +23,12 @@ class BaseController extends GetxController {
   Rx<RequestStatus> requestStatus = RequestStatus.defaultt.obs;
   RxList<OperationType> operationType = <OperationType>[].obs;
   RxList<OperationType> listType = <OperationType>[].obs;
-  RxList<Documents> documentsList = <Documents>[].obs;
+ // RxList<Documents> documentsList = <Documents>[].obs;
+  RxList<Departments> departmentsList=<Departments>[].obs;
+  RxInt selectedDepartmen = 0.obs;
+  RxInt selectedUser = 0.obs;
+  RxString departmentName = 'القسم'.obs;
+  RxString userName = 'اسم الموظف'.obs;
 
   final ImagePicker picker = ImagePicker();
 
@@ -67,6 +74,17 @@ class BaseController extends GetxController {
         : FileModel([], type);
   }
 
+Future<void> getAllDepartments()async{
+  await DepartmentsRepository().getDepartments().then((value){
+    if(value.$1!=null){
+      errorMessage.value =value.$1!;
+    }else if(value.$2!=null){
+   departmentsList.clear();
+   departmentsList.addAll(value.$2!.data!);
+    }
+  });
+}
+
   Future runLoadingFutureFunction(
       {required Future function,
       OperationType? type = OperationType.none}) async {
@@ -88,8 +106,8 @@ class BaseController extends GetxController {
   }
 
   void getAllDocuments() {
-    documentsList.clear();
-    documentsList.addAll(GetAllDocsModel.fromJson(MapsData.docsMap).documents!);
+    //documentsList.clear();
+   // documentsList.addAll(GetAllDocsModel.fromJson(MapsData.docsMap).documents!);
     success.value = true;
   }
 }

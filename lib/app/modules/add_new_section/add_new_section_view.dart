@@ -59,7 +59,7 @@ class AddNewSectionView extends GetView<AddNwSectionController> {
                   text: 'إضافة',
                   onPressed: () {
                     if (controller.formKey.currentState!.validate()) {
-                      controller.fakeAdding();
+                      controller.createDepartment();
                     }
                   },
                 ),

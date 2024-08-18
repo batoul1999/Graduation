@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
-import 'package:graduation/app/core/data/models/apis/get_all_docs_model/get_all_docs_model.dart';
+import 'package:graduation/app/core/data/models/apis/templates_models/get_all_templates_model.dart';
 import 'package:graduation/app/core/utils/general_utils.dart';
 import 'package:graduation/app/modules/document_details/controller/document_details_controller.dart';
 import 'package:graduation/app/modules/main_views/controllers/documents_controller.dart';
@@ -20,7 +20,7 @@ class DocumentsView extends GetView<DocumentsController> {
   Widget build(BuildContext context) {
     return RefreshIndicator(
       onRefresh: () async {
-        await controller.loadDocuments();
+        await controller.getAllTemplates();
       },
       child: SafeArea(
         child: Scaffold(
@@ -44,11 +44,6 @@ class DocumentsView extends GetView<DocumentsController> {
                     fieldWidth: 0.9.sw,
                     maxLines: 1,
                     hint: 'بحث',
-                    onChanged: (value) {
-                      value!.isEmpty
-                          ? controller.filteredList.clear()
-                          : controller.filterDocuments(value);
-                    },
                   ),
                   0.02.sh.ph,
                   Obx(() => controller.isAllDocumentsLoading
@@ -65,12 +60,13 @@ class DocumentsView extends GetView<DocumentsController> {
                               mainAxisSpacing: 0.03.sw,
                               crossAxisSpacing: 5.w,
                               children: List.generate(
-                                controller.filteredList.isNotEmpty
-                                    ? controller.filteredList.length
-                                    : controller.documentsList.length,
+                                controller.templatesList.length,
+                                // controller.filteredList.isNotEmpty
+                                //     ? controller.filteredList.length
+                                //     : controller.documentsList.length,
                                 (int index) {
-                                  Documents document =
-                                      controller.documentsList[index];
+                                  Templates template =
+                                      controller.templatesList[index];
                                   return AnimationConfiguration.staggeredGrid(
                                     position: index,
                                     duration: const Duration(seconds: 1),
@@ -88,7 +84,7 @@ class DocumentsView extends GetView<DocumentsController> {
                                           }
                                           Get.toNamed(Routes.DOCUMENTDETAILS,
                                               arguments: {
-                                                'document': document
+                                                'template': template
                                               });
                                         },
                                         child: Container(
@@ -104,7 +100,7 @@ class DocumentsView extends GetView<DocumentsController> {
                                                 vertical: 3.h),
                                             child: Center(
                                               child: Text(
-                                                document.name!,
+                                                template.name ?? 'لا يوجد اسم',
                                                 style: TextStyle(
                                                   // Replace with your custom style
                                                   fontSize: 18.sp,

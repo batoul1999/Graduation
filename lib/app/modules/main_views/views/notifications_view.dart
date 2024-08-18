@@ -4,10 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
-import 'package:graduation/app/core/data/models/apis/get_all_docs_model/get_all_docs_model.dart';
 import 'package:graduation/app/core/utils/general_utils.dart';
 import 'package:graduation/app/modules/main_views/controllers/notifications_controller.dart';
-import 'package:graduation/global/custom_widgets/custom_app_bar.dart';
 import 'package:graduation/global/custom_widgets/custom_text.dart';
 import 'package:graduation/global/shared/app_colors.dart';
 import 'package:shimmer/shimmer.dart';
@@ -34,10 +32,11 @@ class NotificationsView extends GetView<NotificationsController> {
                       : ListView.builder(
                           shrinkWrap: true,
                           primary: false,
-                          itemCount: controller.documentsList.length,
+                          itemCount: 10,
                           itemBuilder: (context, index) {
-                            final notify = controller.documentsList[index];
-                            return todo(notification: notify);
+                          //  final notify;
+                            return const SizedBox.shrink();
+                            //todo(notification: notify);
                           })),
                 )
               : Padding(
@@ -50,26 +49,28 @@ class NotificationsView extends GetView<NotificationsController> {
                           textType: TextStyleType.body,
                           text: controller.errorMessage.value),
                 )),
-          CustomAppBar(
-            text: "الإشعارات",
-            onPressed: () {
-              controller.documentsList.isEmpty
-                  ? controller.getAllNotifications()
-                  : controller.documentsList.clear();
-            },
-            isBool: controller.documentsList.isEmpty.obs,
-          )
+          // CustomAppBar(
+          //   text: "الإشعارات",
+          //   onPressed: () {
+          //     controller.documentsList.isEmpty
+          //         ? controller.getAllNotifications()
+          //         : controller.documentsList.clear();
+          //   },
+          //   isBool: controller.documentsList.isEmpty.obs,
+          // )
         ],
       ),
     );
   }
 
-  Widget todo({required Documents notification}) {
+  Widget todo(
+   // {required Documents notification}
+    ) {
     return Dismissible(
-      key: Key(notification.name!),
+      key: const Key("notification.name"),
       onDismissed: (direction) {
-        controller.documentsList
-            .removeAt(controller.documentsList.indexOf(notification.name!));
+        // controller.documentsList
+        //     .removeAt(controller.documentsList.indexOf(notification.name!));
       },
       direction: DismissDirection.startToEnd,
       background: Container(
@@ -109,7 +110,7 @@ class NotificationsView extends GetView<NotificationsController> {
                     shape: BoxShape.circle,
                     color: AppColors.whiteColor,
                     border: Border.all(color: AppColors.mainBlue, width: 1)),
-                child: notification.name != null
+                child: "notification.name" != null
                     ? Icon(
                         Icons.person,
                         color: AppColors.mainBlue,
@@ -117,7 +118,7 @@ class NotificationsView extends GetView<NotificationsController> {
                       )
                     : ClipOval(
                         child: Image.file(
-                        File(notification.name!),
+                        File("notification.name!"),
                         fit: BoxFit.cover,
                       )),
               ),
@@ -131,21 +132,21 @@ class NotificationsView extends GetView<NotificationsController> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   0.02.sh.ph,
-                  CustomText(
+                  const CustomText(
                       textType: TextStyleType.body,
-                      text: notification.name ?? 'لا يوجد اسم'),
+                      text: "notification.name" ?? 'لا يوجد اسم'),
                   0.005.sh.ph,
                   Text(
-                    notification.body!.length>100?notification.body!.substring(0,100):notification.body ?? 'لا يوجد وصف',
+                  "  notification.body!.length>100?notification.body!.substring(0,100):notification.body" ?? 'لا يوجد وصف',
                     style: TextStyle(
                         fontSize: 12.sp,
                         overflow: TextOverflow.fade,
                         fontWeight: FontWeight.w300),
                   ),
                   const Spacer(),
-                  CustomText(
+                  const CustomText(
                       textType: TextStyleType.small,
-                      text: notification.name ?? 'لا يوجد بيانات')
+                      text: "notification.name" ?? 'لا يوجد بيانات')
                 ],
               ),
             )

@@ -21,19 +21,16 @@ class DocumentStatusView extends GetView<DocumentStatusController> {
         children: [
           CustomAppBar(
               text: "حالة الطلب", isBool: (controller.task != null).obs),
-          sectionDetails(text: "اسم الطلب: ${controller.task!.name}"),
+          sectionDetails(text: "اسم الطلب: ${controller.task!.required!.template!.name??''}"),
           0.005.sh.ph,
-          sectionDetails(text: "الوصف: ${controller.task!.description??'لا يوجد بيانات'}"),
+          sectionDetails(text: "الوصف: ${controller.task!.postat!.description??'لا يوجد بيانات'}"),
           0.005.sh.ph,
-          sectionDetails(text: "التاريخ: ${controller.task!.issuedDate}"),
-          0.005.sh.ph,
-          sectionDetails(
-              text: "القسم الحالي: ${controller.task!.currentDepartment}"),
+          sectionDetails(text: "التاريخ: ${controller.task!.postat!.date??''}"),
           0.005.sh.ph,
           sectionDetails(
-              text: "الموظف الحالي: ${controller.task!.currentEmployee!}"),
+              text: "القسم الحالي: ${controller.task!.statefordept!.firstWhere((e)=>e.states=='قيد الانتظار').department!.name}"),
           0.005.sh.ph,
-          sectionDetails(text: "حالة الطلب: ${controller.task!.status}"),
+          sectionDetails(text: "حالة الطلب: ${controller.state??''}"),
           0.015.sh.ph,
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 0.015.sw),
@@ -55,7 +52,7 @@ class DocumentStatusView extends GetView<DocumentStatusController> {
                         width: 0.45.sw,
                         child: ListView.builder(
                             itemCount:
-                                controller.task!.previousDepartments!.length,
+                               10,
                             itemBuilder: (context, index) {
                               return Container(
                                 width: 0.4.sw,
@@ -65,10 +62,9 @@ class DocumentStatusView extends GetView<DocumentStatusController> {
                                 decoration: BoxDecoration(
                                     color: AppColors.whiteColor,
                                     borderRadius: BorderRadius.circular(5.r)),
-                                child: CustomText(
+                                child: const CustomText(
                                     textType: TextStyleType.bodyBig,
-                                    text: controller.task!
-                                        .previousDepartments![index].name!),
+                                    text: ''),
                               );
                             }),
                       ),
@@ -91,7 +87,7 @@ class DocumentStatusView extends GetView<DocumentStatusController> {
                         height: 0.28.sh,
                         width: 0.45.sw,
                         child: ListView.builder(
-                            itemCount: controller.task!.nextDepartments!.length,
+                            itemCount: 10,
                             itemBuilder: (context, index) {
                               return Container(
                                 width: 0.4.sw,
@@ -101,10 +97,9 @@ class DocumentStatusView extends GetView<DocumentStatusController> {
                                 decoration: BoxDecoration(
                                     color: AppColors.whiteColor,
                                     borderRadius: BorderRadius.circular(5.r)),
-                                child: CustomText(
+                                child: const CustomText(
                                     textType: TextStyleType.bodyBig,
-                                    text: controller
-                                        .task!.nextDepartments![index].name!),
+                                    text: ''),
                               );
                             }),
                       ),

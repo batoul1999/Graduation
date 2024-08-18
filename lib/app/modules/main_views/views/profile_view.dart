@@ -102,7 +102,7 @@ class ProfileView extends GetView<ProfileController> {
                 ),
                 0.01.sh.ph,
                 CustomTextForm(
-                  controller: controller.departmentController,
+                  controller: controller.passwordController,
                   hint: 'القسم',
                   keyboardType: TextInputType.emailAddress,
                 ),

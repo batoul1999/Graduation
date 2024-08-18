@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:graduation/app/core/data/models/apis/get_all_tasks_moel/get_all_tasks_model.dart';
+import 'package:graduation/app/core/data/models/apis/task_models/get_all_tasks_model.dart';
 import 'package:graduation/app/core/utils/general_utils.dart';
 import 'package:graduation/app/modules/all_tasks/all_tasks_controller.dart';
 import 'package:graduation/app/routes/app_pages.dart';
@@ -23,7 +23,7 @@ class AllTasksView extends GetView<AllTasksController> {
       child: Scaffold(
         body: RefreshIndicator(
           onRefresh: () async {
-            await controller.loadTasks();
+            await controller.getAllTasks();
           },
           child: CustomGradientContainer(
             child: Column(
@@ -31,8 +31,7 @@ class AllTasksView extends GetView<AllTasksController> {
                 CustomAppBar(
                     text: 'جميع المهام',
                     onPressed: () async {
-                      await controller.loadTasks();
-                      await controller.loadDepartments();
+                      await controller.getAllTasks();
                     },
                     isBool: controller.tasksList.isNotEmpty.obs),
                 Obx(() => controller.isDepartmentsLoading
@@ -77,8 +76,7 @@ class AllTasksView extends GetView<AllTasksController> {
 
                                           controller.filterTasksByDepartment(
                                               department: controller
-                                                  .departmentsList[index - 1]
-                                                  .name!);
+                                                  .departmentsList[index - 1]);
                                         },
                                         child: Container(
                                           margin: EdgeInsets.symmetric(
@@ -140,13 +138,27 @@ class AllTasksView extends GetView<AllTasksController> {
                                 ? controller.filteredTasksList.length
                                 : controller.tasksList.length,
                             itemBuilder: (context, index) {
-                              Tasks task = controller.isFiltered.value
+                              Task task = controller.isFiltered.value
                                   ? controller.filteredTasksList[index]
                                   : controller.tasksList[index];
                               return InkWell(
                                 onTap: () {
-                                  Get.toNamed(Routes.DOCUMENTSTATUS,
-                                      arguments: {"task": task});
+                                  controller
+                                      .getDepartmentById(id: task.id!)
+                                      .then((_) => Get.toNamed(
+                                              Routes.DOCUMENTSTATUS,
+                                              arguments: {
+                                                "task": controller.taskModel,
+                                                'state':
+                                                    controller.isFiltered.value
+                                                        ? controller
+                                                            .filteredTasksList[
+                                                                index]
+                                                            .states
+                                                        : controller
+                                                            .tasksList[index]
+                                                            .states
+                                              }));
                                 },
                                 child: Container(
                                   width: 1.sw,
@@ -162,17 +174,18 @@ class AllTasksView extends GetView<AllTasksController> {
                                       CustomText(
                                           textType: TextStyleType.body,
                                           textColor: AppColors.blackColor,
-                                          text: task.name ?? 'لا يوجد اسم'),
+                                          text: task.post!.template!.name ??
+                                              'لا يوجد اسم'),
                                       const Spacer(),
                                       CustomText(
                                           textType: TextStyleType.body,
                                           fontSize: 14.sp,
-                                          textColor: task.status == 'مُنجز'
+                                          textColor: task.states == 'مُنجز'
                                               ? AppColors.greenColor
-                                              : task.status == "قيد الانتظار"
+                                              : task.states == "قيد الانتظار"
                                                   ? AppColors.mainBlue
                                                   : AppColors.redColor,
-                                          text: task.status ?? 'لا يوجد حالة'),
+                                          text: task.states ?? 'لا يوجد حالة'),
                                     ],
                                   ),
                                 ),

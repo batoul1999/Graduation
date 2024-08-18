@@ -48,7 +48,7 @@ class DocumentDetailsView extends GetView<DocumentDetailsController> {
                         0.07.sw.pw,
                         CustomText(
                           textType: TextStyleType.subTitle,
-                          text: controller.document!.name!,
+                          text: '',
                           textColor: AppColors.mainBlue,
                           fontWeight: FontWeight.w500,
                         )
@@ -71,33 +71,29 @@ class DocumentDetailsView extends GetView<DocumentDetailsController> {
                             children: [
                               detailsInfo(
                                   controller: controller.employeeController,
-                                  text: 'اسم الموظف'),
+                                  text: 'رقم الطلب'),
                               SizedBox(
                                 width: 0.9.sw,
                                 height: 50 *
-                                    controller.document!.data!.length
+                                    controller.document!.list!.length
                                         .toDouble(),
                                 child: ListView.builder(
                                     primary: false,
                                     itemCount:
-                                        controller.document!.data!.length,
+                                        controller.document!.list!.length,
                                     itemBuilder: (context, index) {
-                                      controller.controllersList =
-                                          List.generate(
-                                              controller.document!.data!.length,
-                                              (index) =>
-                                                  TextEditingController());
+                                      
                                       return detailsInfo(
                                           controller:
                                               controller.controllersList[index],
                                           text: controller
-                                              .document!.data![index]);
+                                              .document!.list![index]);
                                     }),
                               ),
                               0.01.sh.ph,
                               StaticCustomDrop(
-                                  textName: controller.departmentName,
-                                  selectedValue: controller.selectedDepartmen,
+                                  textName: controller.userName,
+                                  selectedValue: controller.selectedUser,
                                   itemList: controller.itemsList),
                               0.01.sh.ph,
                               CustomDatePicker(
@@ -264,8 +260,8 @@ class DocumentDetailsView extends GetView<DocumentDetailsController> {
                       shape: CircleBorder(),
                     ),
                     child: IconButton(
-                      onPressed: () {
-                        controller.fakeSending();
+                      onPressed: () async {
+                        await controller.sendTask();
                       },
                       color: Colors.blue,
                       icon: const Icon(

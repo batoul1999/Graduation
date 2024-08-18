@@ -14,3 +14,4 @@ class MainAppController extends BaseController {
     super.onInit();
   }
 }
+

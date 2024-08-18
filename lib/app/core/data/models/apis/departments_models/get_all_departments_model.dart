@@ -1,25 +1,51 @@
 class GetAllDepartmentsModel {
-  List<AllDepartments>? departments;
+  bool? success;
+  List<Departments>? data;
 
-  GetAllDepartmentsModel({this.departments});
+  GetAllDepartmentsModel({this.success, this.data});
 
   GetAllDepartmentsModel.fromJson(Map<String, dynamic> json) {
-    if (json['departments'] != null) {
-      departments = <AllDepartments>[];
-      json['departments'].forEach((v) {
-        departments!.add(AllDepartments.fromJson(v));
+    success = json['success'];
+    if (json['data'] != null) {
+      data = <Departments>[];
+      json['data'].forEach((v) {
+        data!.add(Departments.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    if (departments != null) {
-      data['departments'] = departments!.map((v) => v.toJson()).toList();
+    data['success'] = success;
+    if (this.data != null) {
+      data['data'] = this.data!.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
+
+class Departments {
+  int? id;
+  String? name;
+  String? description;
+
+  Departments({this.id, this.name, this.description});
+
+  Departments.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+    description = json['description'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    data['description'] = description;
+    return data;
+  }
+}
+
 
 class AllDepartments {
   int? id;
